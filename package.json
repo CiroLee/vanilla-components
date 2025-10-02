@@ -1,0 +1,25 @@
+{
+  "name": "vanilla-components",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "vanilla-components is a lightweight UI component library built with native javascript and based on web components. Therefore, you don't need any build tools and can download and use it directly.",
+  "main": "dist/button/index.mjs",
+  "scripts": {
+    "scan": "node build-components.js",
+    "build": "node build-components.js && rollup -c rollup.config.js"
+  },
+  "keywords": [
+    "ui",
+    "components",
+    "vanilla",
+    "web components"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-terser": "^0.4.4",
+    "rollup": "^2.79.1",
+    "rollup-plugin-delete": "^3.0.1"
+  }
+}

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="favicon.ico" />
+    <link rel="stylesheet" href="styles/global.css" />
+    <title>vanilla-components | button</title>
+  </head>
+  <body>
+    <section>
+      <ne-heading class="mb-3" as="h2">Buttons</ne-heading>
+      <ne-button id="btn-1">Button</ne-button>
+    </section>
+  </body>
+  <script type="module">
+    import "../src/button/index.js";
+    import "../src/heading/index.js";
+
+    const btn1 = document.getElementById("btn-1");
+
+    // btn1.addEventListener("onButtonClick", (e) => {
+    //   console.log(e.detail);
+    // });
+  </script>
+</html>
