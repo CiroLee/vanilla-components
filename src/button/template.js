@@ -3,8 +3,6 @@ template.innerHTML = /* html */ `
   <style>
     :host {
       display: inline-flex;
-      --primary-color: #3b5bdb;
-      --primary-active-color: #364fc7;
     }
     :host(.block) {
       display:flex;
@@ -28,7 +26,7 @@ template.innerHTML = /* html */ `
         background-color: color-mix(in srgb, var(--primary-color) 90%, transparent 40%);
       }
       &:not(:disabled):hover {
-        background-color: color-mix(in srgb, var(--primary-color) 90%, transparent 20%);
+        background-color: color-mix(in srgb, var(--primary-color) 100%, transparent 10%);
       }
       &:not(:disabled):active {
         background-color: var(--primary-active-color);

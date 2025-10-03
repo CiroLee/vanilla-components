@@ -5,22 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="favicon.ico" />
     <link rel="stylesheet" href="styles/global.css" />
+    <script type="module" src="https://cdn.jsdelivr.net/npm/syntax-highlight-element@latest/+esm"></script>
     <title>vanilla-components | button</title>
   </head>
   <body>
-    <section>
-      <ne-heading class="mb-3" as="h2">Buttons</ne-heading>
-      <ne-button id="btn-1">Button</ne-button>
-    </section>
+    <va-theme-provider>
+      <section class="dreamy-effect px-6">
+        <h2>Buttons</h2>
+        <va-button id="btn-1">Button</va-button>
+        <!-- prettier-ignore -->
+        <code-block language="html"><va-button id="btn-1">Button</va-button></code-block>
+      </section>
+    </va-theme-provider>
   </body>
+  <script type="module" src="../src/theme-provider/index.js"></script>
   <script type="module">
-    import "../src/button/index.js";
-    import "../src/heading/index.js";
-
-    const btn1 = document.getElementById("btn-1");
-
-    // btn1.addEventListener("onButtonClick", (e) => {
-    //   console.log(e.detail);
-    // });
+    import '../src/button/index.js';
+    import './components/code-block.js';
   </script>
 </html>
