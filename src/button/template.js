@@ -32,30 +32,36 @@ template.innerHTML = /* html */ `
       box-sizing: border-box;
       &:disabled {
         cursor: not-allowed;
-        background-color: color-mix(in srgb, var(--color) 90%, transparent 80%);
+        background-color: color-mix(in oklch, var(--color) 75%, white 25%);
       }
       &:not(:disabled):hover {
-        background-color: color-mix(in srgb, var(--color) 90%, black 10%);
+        background-color: color-mix(in oklch, var(--color) 90%, black 10%);
       }
       &:not(:disabled):active {
-        background-color: color-mix(in srgb, var(--color) 90%, black 20%);
+        background-color: color-mix(in oklch, var(--color) 90%, black 20%);
       }
       &:focus-visible {
-        outline: 2px solid color-mix(in srgb, var(--color) 90%, transparent 60%);
+        outline: 2px solid color-mix(in oklch, var(--color) 90%, white 60%);
         outline-offset: 2px;
       }
       &:where([data-variant="outline"],[data-variant="ghost"]) {
         background-color: transparent;
         color: var(--color);
         &:not(:disabled):hover {
-          background-color: color-mix(in srgb, var(--color) 15%, transparent 100%);
+          background-color: color-mix(in oklch, var(--color) 15%, transparent 75%);
         }
         &:not(:disabled):active {
-          background-color: color-mix(in srgb, var(--color) 25%, transparent 100%);
+          background-color: color-mix(in oklch, var(--color) 25%, transparent 75%);
         }
       }
       &[data-variant="outline"] {
-        border: 1px solid color-mix(in srgb, var(--color) 100%, transparent 60%);
+        border: 1px solid color-mix(in oklch, var(--color) 60%, white 40%);
+        &:not(:disabled):hover {
+          background-color: color-mix(in oklch, var(--color) 16%, white 0%);
+        }
+        &:not(:disabled):active {
+          background-color: color-mix(in oklch, var(--color) 26%, white 2%);
+        }
       }
 
     }
