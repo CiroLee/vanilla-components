@@ -11,10 +11,23 @@
   <body>
     <va-theme-provider>
       <section class="dreamy-effect px-6">
-        <h2>Buttons</h2>
-        <va-button id="btn-1">Button</va-button>
+        <div class="container">
+          <h2>Buttons</h2>
+          <h3>Colors</h3>
+          <div class="flex items-center gap-2 mb-3">
+            <va-button color="primary">Primary</va-button>
+            <va-button color="warning">Warning</va-button>
+            <va-button color="danger">Danger</va-button>
+          </div>
+          <h3>Variant</h3>
+          <div class="flex items-center gap-2 mb-3">
+            <va-button>Solid</va-button>
+            <va-button variant="outline">Outline</va-button>
+            <va-button variant="ghost">Ghost</va-button>
+          </div>
+        </div>
         <!-- prettier-ignore -->
-        <code-block language="html"><va-button id="btn-1">Button</va-button></code-block>
+        <!-- <code-block language="html"><va-button id="btn-1">Button</va-button></code-block> -->
       </section>
     </va-theme-provider>
   </body>
@@ -22,5 +35,7 @@
   <script type="module">
     import '../src/button/index.js';
     import './components/code-block.js';
+    // const btn2 = document.getElementById('btn-2');
+    // btn2.variant = 'outline';
   </script>
 </html>

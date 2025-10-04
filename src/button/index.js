@@ -26,6 +26,10 @@ class VaButton extends HTMLElement {
       this.#updateDisabled();
     } else if (name === 'block') {
       this.#updateBlock();
+    } else if (name === 'variant') {
+      this.#updateVariant(newValue);
+    } else if (name === 'color') {
+      this.#updateColor(newValue);
     }
   }
   #addEventListeners() {
@@ -52,17 +56,29 @@ class VaButton extends HTMLElement {
   }
 
   static get observedAttributes() {
-    return ['disabled', 'block'];
+    return ['disabled', 'block', 'color', 'variant'];
   }
 
   get disabled() {
     return this.#button.disabled;
   }
   set disabled(value) {
-    value ? this.setAttribute('disabled', '') : this.removeAttribute('disabled');
+    if (value) {
+      this.#button.setAttribute('disabled', '');
+      this.#button.setAttribute('aria-disabled', 'true');
+    } else {
+      this.#button.removeAttribute('disabled');
+      this.#button.removeAttribute('aria-disabled');
+    }
   }
   get block() {
     return this.hasAttribute('block');
+  }
+  set variant(variant) {
+    this.#updateVariant(variant);
+  }
+  set color(color) {
+    this.#updateColor(color);
   }
   set block(value) {
     value ? this.setAttribute('block', '') : this.removeAttribute('block');
@@ -72,5 +88,16 @@ class VaButton extends HTMLElement {
   }
   #updateDisabled() {
     this.#button.disabled = this.hasAttribute('disabled');
+    this.#button.setAttribute('aria-disabled', this.hasAttribute('disabled'));
+  }
+  /**
+   *
+   * @param {'solid' | 'outline'} variant
+   */
+  #updateVariant(variant = 'solid') {
+    this.#button.setAttribute('data-variant', variant);
+  }
+  #updateColor(color) {
+    this.#button.setAttribute('data-color', color);
   }
 }

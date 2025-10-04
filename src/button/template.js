@@ -7,30 +7,57 @@ template.innerHTML = /* html */ `
     :host(.block) {
       display:flex;
     }
+    button[data-color="danger"] {
+      --color: var(--danger-color);
+    }
+    button[data-color="warning"] {
+      --color: var(--warning-color);
+    }
     button {
+      --color: var(--primary-color);
       width: 100%;
       display: inherit;
       border: 0;
       justify-content: center;
       align-items: center;
       gap: 4px;
-      background-color: var(--primary-color);
+      background-color: var(--color);
       color: white;
       font-size: 14px;
       padding: 0 16px;
       height: 32px;
       border-radius: 4px;
-      transition: background-color 0.2s;
+      transition-property: background-color,filter;
+      transition-duration: 0.2s;
+      box-sizing: border-box;
       &:disabled {
         cursor: not-allowed;
-        background-color: color-mix(in srgb, var(--primary-color) 90%, transparent 40%);
+        background-color: color-mix(in srgb, var(--color) 90%, transparent 80%);
       }
       &:not(:disabled):hover {
-        background-color: color-mix(in srgb, var(--primary-color) 100%, transparent 10%);
+        background-color: color-mix(in srgb, var(--color) 90%, black 10%);
       }
       &:not(:disabled):active {
-        background-color: var(--primary-active-color);
+        background-color: color-mix(in srgb, var(--color) 90%, black 20%);
       }
+      &:focus-visible {
+        outline: 2px solid color-mix(in srgb, var(--color) 90%, transparent 60%);
+        outline-offset: 2px;
+      }
+      &:where([data-variant="outline"],[data-variant="ghost"]) {
+        background-color: transparent;
+        color: var(--color);
+        &:not(:disabled):hover {
+          background-color: color-mix(in srgb, var(--color) 15%, transparent 100%);
+        }
+        &:not(:disabled):active {
+          background-color: color-mix(in srgb, var(--color) 25%, transparent 100%);
+        }
+      }
+      &[data-variant="outline"] {
+        border: 1px solid color-mix(in srgb, var(--color) 100%, transparent 60%);
+      }
+
     }
   </style>
   <button part="button"><slot></slot></button>

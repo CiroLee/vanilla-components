@@ -20,4 +20,22 @@
     padding-left: calc(var(--spacing) * 6);
     padding-right: calc(var(--spacing) * 6);
   }
+  /* layout */
+  .flex-center {
+    align-items: center;
+    justify-content: center;
+  }
+  .items-center {
+    align-items: center;
+  }
+  .justify-center {
+    justify-content: center;
+  }
+  /* space */
+  .gap-1 {
+    gap: var(--spacing);
+  }
+  .gap-2 {
+    gap: calc(var(--spacing) * 2);
+  }
 }

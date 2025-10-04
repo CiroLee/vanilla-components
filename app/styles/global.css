@@ -3,6 +3,8 @@
 @import './atom/component.css' layer(components);
 @import './atom/utility.css' layer(utilities);
 
+@import './common/layout.css' layer(components);
+
 :root {
   --spacing: 0.25rem;
 }

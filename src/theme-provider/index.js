@@ -8,8 +8,10 @@ class VaThemeProvider extends HTMLElement {
     this.shadowRoot.innerHTML = /* html */ `
       <style>
         :host {
-          --primary-color: #3b5bdb;
-          --primary-active-color: #364fc7;
+          --primary-color: #0D65F2;
+          --warning-color: #FFAB1A;
+          --danger-color: #F03D4F;
+
         }
       </style>
       <slot></slot>
