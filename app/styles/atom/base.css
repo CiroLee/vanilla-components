@@ -1,8 +1,0 @@
-@layer base {
-  .block {
-    display: block;
-  }
-  .flex {
-    display: flex;
-  }
-}

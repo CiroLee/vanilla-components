@@ -1,9 +1,6 @@
 @layer base, components, utilities;
-@import './atom/base.css' layer(base);
-@import './atom/component.css' layer(components);
-@import './atom/utility.css' layer(utilities);
-
-@import './common/layout.css' layer(components);
+@import './component.css';
+@import './layout.css';
 
 :root {
   --spacing: 0.25rem;
@@ -12,5 +9,5 @@
 body {
   margin: 0;
   background-color: #f8fafb;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 }

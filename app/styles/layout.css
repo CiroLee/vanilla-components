@@ -1,0 +1,11 @@
+@layer components {
+  .main-container {
+    width: 54%;
+    margin: 32px 0;
+    max-width: 960px;
+    margin-inline: auto;
+    @media (max-width: 768px) {
+      width: 100%;
+    }
+  }
+}
