@@ -7,7 +7,7 @@ const isProduction = process.env.NODE_ENV === 'production';
 export default [
   // ES模块格式
   {
-    input: 'src/index.js',
+    input: 'src/ui/index.js',
     output: {
       file: 'dist/vanilla-components.esm.js',
       format: 'es',
@@ -21,7 +21,7 @@ export default [
   },
   // UMD格式
   {
-    input: 'src/index.js',
+    input: 'src/ui/index.js',
     output: {
       file: 'dist/vanilla-components.umd.js',
       format: 'umd',
