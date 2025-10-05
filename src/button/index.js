@@ -3,40 +3,58 @@ import template from './template.js';
 class VaButton extends HTMLElement {
   #button;
   #handleClick;
+  #tplCloned;
   static {
     customElements.define('va-button', this);
   }
   constructor() {
     super();
     this.attachShadow({ mode: 'open' });
-    this.tplCloned = template.content.cloneNode(true);
-    this.shadowRoot.appendChild(this.tplCloned);
+    this.#tplCloned = template.content.cloneNode(true);
+    this.shadowRoot.appendChild(this.#tplCloned);
     this.#button = this.shadowRoot.querySelector('button');
   }
 
   connectedCallback() {
+    this.#updateType();
     this.#addEventListeners();
   }
   disconnectedCallback() {
     this.#removeEventListeners();
   }
-
+  static get observedAttributes() {
+    return ['disabled', 'block', 'color', 'variant', 'size', 'rounded', 'loading', 'type'];
+  }
   attributeChangedCallback(name, oldValue, newValue) {
-    if (name === 'disabled') {
-      this.#updateDisabled();
-    } else if (name === 'block') {
-      this.#updateBlock();
-    } else if (name === 'variant') {
-      this.#updateVariant(newValue);
-    } else if (name === 'color') {
-      this.#updateColor(newValue);
+    switch (name) {
+      case 'disabled':
+        this.#updateDisabled();
+        break;
+      case 'block':
+        this.#updateBlock();
+        break;
+      case 'variant':
+        this.#updateVariant(newValue);
+        break;
+      case 'color':
+        this.#updateColor(newValue);
+        break;
+      case 'size':
+        this.#updateSize(newValue);
+        break;
+      case 'rounded':
+        this.#updateRounded(newValue);
+        break;
+      case 'loading':
+        this.#updateLoading();
+        break;
     }
   }
   #addEventListeners() {
     this.#handleClick = (e) => {
       if (!this.disabled) {
         this.dispatchEvent(
-          new CustomEvent('onButtonClick', {
+          new CustomEvent('onBtnClick', {
             bubbles: true,
             composed: true,
             detail: {
@@ -54,34 +72,35 @@ class VaButton extends HTMLElement {
       this.#button.removeEventListener('click', this.#handleClick);
     }
   }
-
-  static get observedAttributes() {
-    return ['disabled', 'block', 'color', 'variant'];
-  }
-
   get disabled() {
     return this.#button.disabled;
   }
   set disabled(value) {
-    if (value) {
-      this.#button.setAttribute('disabled', '');
-      this.#button.setAttribute('aria-disabled', 'true');
-    } else {
-      this.#button.removeAttribute('disabled');
-      this.#button.removeAttribute('aria-disabled');
-    }
+    value ? this.setAttribute('disabled', '') : this.removeAttribute('disabled');
   }
   get block() {
     return this.hasAttribute('block');
   }
-  set variant(variant) {
-    this.#updateVariant(variant);
-  }
-  set color(color) {
-    this.#updateColor(color);
-  }
   set block(value) {
     value ? this.setAttribute('block', '') : this.removeAttribute('block');
+  }
+  get loading() {
+    return this.hasAttribute('loading');
+  }
+  set loading(loading) {
+    loading ? this.setAttribute('loading', '') : this.removeAttribute('loading');
+  }
+  set variant(variant) {
+    this.setAttribute('variant', variant);
+  }
+  set color(color) {
+    this.setAttribute('color', color);
+  }
+  set size(size) {
+    this.setAttribute('size', size);
+  }
+  set rounded(rounded) {
+    this.setAttribute('rounded', rounded);
   }
   #updateBlock() {
     this.classList.toggle('block', this.hasAttribute('block'));
@@ -99,5 +118,30 @@ class VaButton extends HTMLElement {
   }
   #updateColor(color) {
     this.#button.setAttribute('data-color', color);
+  }
+  /**
+   *
+   * @param {'sm'| 'md' | 'lg'} size
+   */
+  #updateSize(size = 'md') {
+    this.#button.setAttribute('data-size', size);
+  }
+  /**
+   *
+   * @param {'sm' | 'md' | 'lg' | 'none' | 'full'} rounded
+   */
+  #updateRounded(rounded) {
+    this.#button.setAttribute('data-rounded', rounded);
+  }
+  #updateLoading() {
+    this.#button.setAttribute('data-loading', this.hasAttribute('loading'));
+    this.hasAttribute('loading') ? this.#button.setAttribute('aria-label', 'loading') : this.#button.removeAttribute('aria-label');
+  }
+  /**
+   *
+   * @param {'button' | 'submit' | 'reset'} type
+   */
+  #updateType(type = 'button') {
+    this.#button.setAttribute('type', type);
   }
 }

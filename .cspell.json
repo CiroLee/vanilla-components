@@ -1,3 +1,3 @@
 {
-  "ignoreWords": ["rgba", "oklch"]
+  "ignoreWords": ["rgba", "oklch", "segoe", "noto"]
 }

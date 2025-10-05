@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "type": "module",
   "description": "vanilla-components is a lightweight UI component library built with native javascript and based on web components. Therefore, you don't need any build tools and can download and use it directly.",
-  "main": "dist/button/index.mjs",
+  "main": "dist/vanilla-components.esm.js",
   "scripts": {
     "scan": "node build-components.js",
     "build": "node build-components.js && rollup -c rollup.config.js"

@@ -13,6 +13,30 @@ template.innerHTML = /* html */ `
     button[data-color="warning"] {
       --color: var(--warning-color);
     }
+    button[data-color="success"] {
+      --color: var(--success-color);
+    }
+    button[data-size="sm"] {
+      height: 24px;
+      font-size: 12px;
+      padding: 0 10px;
+    }
+    button[data-size="lg"] {
+      height: 40px;
+      font-size: 16px;
+    }
+    button[data-rounded="sm"] {
+      border-radius: 4px;
+    }
+    button[data-rounded="lg"] {
+      border-radius: 10px;
+    }
+    button[data-rounded="full"] {
+      border-radius:calc(infinity * 1px);
+    }
+    button[data-rounded="none"] {
+      border-radius: 0;
+    }
     button {
       --color: var(--primary-color);
       width: 100%;
@@ -26,13 +50,17 @@ template.innerHTML = /* html */ `
       font-size: 14px;
       padding: 0 16px;
       height: 32px;
-      border-radius: 4px;
+      border-radius: 6px;
       transition-property: background-color,filter;
       transition-duration: 0.2s;
       box-sizing: border-box;
+      &[data-loading]{
+        pointer-events: none;
+        background-color: color-mix(in oklch, var(--color) 75%, white 25%);
+      }
       &:disabled {
         cursor: not-allowed;
-        background-color: color-mix(in oklch, var(--color) 75%, white 25%);
+        background-color: color-mix(in oklch, var(--color) 65%, white 35%);
       }
       &:not(:disabled):hover {
         background-color: color-mix(in oklch, var(--color) 90%, black 10%);
@@ -52,6 +80,11 @@ template.innerHTML = /* html */ `
         }
         &:not(:disabled):active {
           background-color: color-mix(in oklch, var(--color) 25%, transparent 75%);
+        }
+        &:disabled {
+          background-color: transparent;
+          color: color-mix(in oklch, var(--color) 65%, white 35%);
+          border-color: color-mix(in oklch, var(--color) 40%, white 60%);
         }
       }
       &[data-variant="outline"] {
