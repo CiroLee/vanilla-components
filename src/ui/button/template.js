@@ -51,7 +51,7 @@ template.innerHTML = /* html */ `
       padding: 0 16px;
       height: 32px;
       border-radius: 6px;
-      transition-property: background-color,filter;
+      transition-property: background-color,scale;
       transition-duration: 0.2s;
       box-sizing: border-box;
       &[data-loading]{
@@ -66,7 +66,7 @@ template.innerHTML = /* html */ `
         background-color: color-mix(in oklch, var(--color) 90%, black 10%);
       }
       &:not(:disabled):active {
-        background-color: color-mix(in oklch, var(--color) 90%, black 20%);
+        scale: 0.96;
       }
       &:focus-visible {
         outline: 2px solid color-mix(in oklch, var(--color) 90%, white 60%);
@@ -78,9 +78,6 @@ template.innerHTML = /* html */ `
         &:not(:disabled):hover {
           background-color: color-mix(in oklch, var(--color) 15%, transparent 75%);
         }
-        &:not(:disabled):active {
-          background-color: color-mix(in oklch, var(--color) 25%, transparent 75%);
-        }
         &:disabled {
           background-color: transparent;
           color: color-mix(in oklch, var(--color) 65%, white 35%);
@@ -91,9 +88,6 @@ template.innerHTML = /* html */ `
         border: 1px solid color-mix(in oklch, var(--color) 60%, white 40%);
         &:not(:disabled):hover {
           background-color: color-mix(in oklch, var(--color) 16%, white 0%);
-        }
-        &:not(:disabled):active {
-          background-color: color-mix(in oklch, var(--color) 26%, white 2%);
         }
       }
 
