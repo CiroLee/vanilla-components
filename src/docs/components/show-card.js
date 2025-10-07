@@ -13,7 +13,7 @@ template.innerHTML = /* html */ `
       height: 160px;
       box-sizing: border-box;
       border-radius: 6px;
-      border: 1px solid color-mix(in oklch, black 10%, white 90%);
+      border: 1px solid var(--border-color);
       transition-property: background-color, border-color;
       transition-duration: 0.2s;
       transition-timing-function: ease;

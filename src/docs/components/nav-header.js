@@ -12,7 +12,7 @@ template.innerHTML = /* html */ `
       top: 0;
       width: 100vw;
       box-sizing: border-box;
-      border-bottom: 1px solid color-mix(in oklch, var(--black-color) 10%, white 90%);
+      border-bottom: 1px solid var(--border-color);
       background-color: rgb( 255 255 255 / 60%);
       backdrop-filter: blur(20px) saturate(180%);
     }
@@ -30,7 +30,7 @@ template.innerHTML = /* html */ `
       justify-content: center;
       align-items: center;
       cursor: pointer;
-      border: 1px solid color-mix(in oklch, var(--black-color) 10%, white 90%);
+      border: 1px solid var(--border-color);
     }
     @media (max-width: 640px) {
       header {

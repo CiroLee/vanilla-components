@@ -3,15 +3,13 @@ import template from './template.js';
 class VaButton extends HTMLElement {
   #button;
   #handleClick;
-  #tplCloned;
   static {
     customElements.define('va-button', this);
   }
   constructor() {
     super();
     this.attachShadow({ mode: 'open' });
-    this.#tplCloned = template.content.cloneNode(true);
-    this.shadowRoot.appendChild(this.#tplCloned);
+    this.shadowRoot.appendChild(template.content.cloneNode(true));
     this.#button = this.shadowRoot.querySelector('button');
   }
 

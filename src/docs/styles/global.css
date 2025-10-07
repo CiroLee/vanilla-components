@@ -2,10 +2,6 @@
 @import './component.css';
 @import './layout.css';
 
-:root {
-  --spacing: 0.25rem;
-}
-
 body {
   margin: 0;
   background-color: #f8fafb;

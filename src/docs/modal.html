@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>vanilla-components | modal</title>
+    <link rel="stylesheet" href="./styles/global.css" />
+  </head>
+  <body>
+    <va-theme-provider>
+      <nav-header></nav-header>
+      <section class="main-container">
+        <h2 class="mb-3">Modal</h2>
+        <h4 class="mb-2">Default</h4>
+        <preview-code-switcher>
+          <div slot="preview">
+            <va-button id="open-modal-1">open modal</va-button>
+          </div>
+          <div slot="code">
+            <code-block id="modal-default-code" language="html"></code-block>
+          </div>
+          <div slot="code">
+            <code-block id="modal-default-code-js" language="js"></code-block>
+          </div>
+        </preview-code-switcher>
+        <h4 class="mb-2 mt-3">Blur overlay</h4>
+        <preview-code-switcher>
+          <div slot="preview">
+            <va-button id="open-modal-2">open modal</va-button>
+          </div>
+          <div slot="code">
+            <code-block id="modal-overlay-code" language="html"></code-block>
+          </div>
+        </preview-code-switcher>
+        <h4 class="mb-2 mt-3">OverlayClickable</h4>
+        <preview-code-switcher>
+          <div slot="preview">
+            <va-button id="open-modal-3">open modal</va-button>
+          </div>
+          <div slot="code">
+            <code-block id="modal-overlay-clickable-code" language="html"></code-block>
+          </div>
+        </preview-code-switcher>
+      </section>
+      <va-modal id="modal-1">
+        <p slot="title">标题</p>
+        <p slot="description">这是一段描述</p>
+        <div slot="content">this is modal content...</div>
+        <div slot="footer">
+          <va-button id="cancel" variant="ghost">取消</va-button>
+          <va-button id="confirm" color="primary">确定</va-button>
+        </div>
+      </va-modal>
+      <va-modal id="modal-2" overlay="blur">
+        <p slot="title">标题</p>
+        <p slot="description">这是一段描述</p>
+        <div slot="content">blur overlay...</div>
+      </va-modal>
+      <va-modal id="modal-3" overlay-clickable>
+        <p slot="title">标题</p>
+        <p slot="description">这是一段描述</p>
+        <div slot="content">click overlay to close...</div>
+      </va-modal>
+    </va-theme-provider>
+  </body>
+  <script type="module" src="https://cdn.jsdelivr.net/npm/syntax-highlight-element@latest/+esm"></script>
+  <script type="module">
+    import './components/nav-header.js';
+    import './components/code-block.js';
+    import './components/preview-code-switcher.js';
+    import '../ui/theme-provider/index.js';
+    import '../ui/modal/index.js';
+    import '../ui/button/index.js';
+    // codes
+    import { defaultModalCodeHtml, defaultModalCodeJs, blurOverlayCode, overlayClickableCode } from './codes/modal.js';
+    const modalDefaultCC = document.getElementById('modal-default-code');
+    const modalDefaultJsCC = document.getElementById('modal-default-code-js');
+    const modalOverlayCC = document.getElementById('modal-overlay-code');
+    const modalOverlayClickableCC = document.getElementById('modal-overlay-clickable-code');
+    modalDefaultCC.code = defaultModalCodeHtml;
+    modalDefaultJsCC.code = defaultModalCodeJs;
+    modalOverlayCC.code = blurOverlayCode;
+    modalOverlayClickableCC.code = overlayClickableCode;
+
+    document.getElementById('open-modal-1').addEventListener('click', () => {
+      document.getElementById('modal-1').show = true;
+    });
+    document.querySelectorAll('#modal-1 va-button').forEach((el) => {
+      el.addEventListener('click', () => {
+        document.getElementById('modal-1').show = false;
+      });
+    });
+
+    document.getElementById('open-modal-2').addEventListener('click', () => {
+      document.getElementById('modal-2').show = true;
+    });
+
+    document.getElementById('open-modal-3').addEventListener('click', () => {
+      document.getElementById('modal-3').show = true;
+    });
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</html>

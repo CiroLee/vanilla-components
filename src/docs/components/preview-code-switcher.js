@@ -6,7 +6,7 @@ template.innerHTML = /* html */ `
       width: fit-content;
       border-radius: 6px;
       overflow: hidden;
-      border: 1px solid #d3d3d3;
+      border: 1px solid var(--border-color);
 
       button {
         --space: 3px;
@@ -45,7 +45,7 @@ template.innerHTML = /* html */ `
     .content {
       margin-top: 8px;
       border-radius: 6px;
-      border: 1px solid #d3d3d3;
+      border: 1px solid var(--border-color);
       overflow: auto;
       max-height: 480px;
     }
