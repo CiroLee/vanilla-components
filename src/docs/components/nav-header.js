@@ -36,7 +36,7 @@ template.innerHTML = /* html */ `
         background-color: rgb(0 0 0 / 6%);
       }
     }
-    @media (max-width: 640px) {
+    @media (max-width: 728px) {
       header {
         padding: 0 16px;
       }
