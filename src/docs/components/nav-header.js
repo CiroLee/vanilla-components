@@ -31,6 +31,10 @@ template.innerHTML = /* html */ `
       align-items: center;
       cursor: pointer;
       border: 1px solid var(--border-color);
+      transition: background-color 0.2s ease;
+      &:hover {
+        background-color: rgb(0 0 0 / 6%);
+      }
     }
     @media (max-width: 640px) {
       header {
