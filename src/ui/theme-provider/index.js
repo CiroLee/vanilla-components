@@ -7,9 +7,6 @@ class VaThemeProvider extends HTMLElement {
     this.attachShadow({ mode: 'open' });
     this.shadowRoot.innerHTML = /* html */ `
       <style>
-        * {
-          padding: unset;
-        }
         :host {
           --black-color: #181818;
           --primary-color: #0D65F2;
