@@ -22,7 +22,6 @@ template.innerHTML = /* html */ `
         padding: 4px;
         z-index: 1;
         cursor: pointer;
-
         &:after {
           content: '';
           width: calc(100% - var(--space) * 2);
@@ -33,7 +32,6 @@ template.innerHTML = /* html */ `
           border-radius: 4px;
           background-color: transparent;
           z-index: -1;
-
         }
         &.active::after {
           background-color: white;
@@ -48,6 +46,10 @@ template.innerHTML = /* html */ `
       border: 1px solid var(--border-color);
       overflow: auto;
       max-height: 480px;
+      padding: 8px;
+      &:has(slot[name="code"].active) {
+        background: #0d1117;
+      }
     }
     slot {
       display: none;
@@ -56,7 +58,7 @@ template.innerHTML = /* html */ `
       display: block;
     }
     slot[name="preview"] {
-      padding: 8px;
+
     }
   </style>
   <div class="preview-code-switcher">

@@ -48,15 +48,6 @@ class VaModal extends HTMLElement {
       this.close();
     }
   }
-  #overlayClick(e) {
-    if (!this.overlayClickable) return;
-    const rect = this.#dialog.getBoundingClientRect();
-    const isInDialog = rect.top <= e.clientY && e.clientY <= rect.bottom && rect.left <= e.clientX && e.clientX <= rect.right;
-    // 不在dialog内点击，则关闭
-    if (!isInDialog) {
-      this.close();
-    }
-  }
   // 打开modal
   open() {
     this.#dialog.showModal();
@@ -109,6 +100,15 @@ class VaModal extends HTMLElement {
       this.removeAttribute('show');
       this.#dialog.close();
     });
+  }
+  #overlayClick(e) {
+    if (!this.overlayClickable) return;
+    const rect = this.#dialog.getBoundingClientRect();
+    const isInDialog = rect.top <= e.clientY && e.clientY <= rect.bottom && rect.left <= e.clientX && e.clientX <= rect.right;
+    // 不在dialog内点击，则关闭
+    if (!isInDialog) {
+      this.close();
+    }
   }
   /**
    * @description 设置遮罩样式，支持blur模糊和默认两种

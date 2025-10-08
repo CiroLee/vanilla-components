@@ -81,9 +81,4 @@ function main() {
   }
 }
 
-// 如果直接运行此脚本
-if (import.meta.url === `file://${process.argv[1]}`) {
-  main();
-}
-
-export { scanComponents, generateIndexContent };
+main();

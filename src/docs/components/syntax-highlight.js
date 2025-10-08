@@ -49,7 +49,6 @@ class SyntaxHighlight extends HTMLElement {
     }
 
     const html = hljs.highlight(code, { language: this.language }).value;
-    console.log(this.language);
 
     this.shadowRoot.innerHTML /* html */ = `
     <style>
@@ -57,9 +56,7 @@ class SyntaxHighlight extends HTMLElement {
       font-size: 14px;
       white-space: pre;
       display: block;
-      padding: 12px;
       color: white;
-      background: #0d1117;
       pre {
         margin: 0;
       }

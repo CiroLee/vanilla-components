@@ -108,24 +108,28 @@ class VaButton extends HTMLElement {
     this.#button.setAttribute('aria-disabled', this.hasAttribute('disabled'));
   }
   /**
-   *
+   *@description 更新button变体
    * @param {'solid' | 'outline'} variant
    */
   #updateVariant(variant = 'solid') {
     this.#button.setAttribute('data-variant', variant);
   }
+  /**
+   * @description 更新button颜色
+   * @param {'primary' | 'success' | 'warning' | 'danger'} color
+   */
   #updateColor(color) {
     this.#button.setAttribute('data-color', color);
   }
   /**
-   *
+   * @description 更新button尺寸
    * @param {'sm'| 'md' | 'lg'} size
    */
   #updateSize(size = 'md') {
     this.#button.setAttribute('data-size', size);
   }
   /**
-   *
+   * @description 更新button圆角
    * @param {'sm' | 'md' | 'lg' | 'none' | 'full'} rounded
    */
   #updateRounded(rounded) {
@@ -136,7 +140,7 @@ class VaButton extends HTMLElement {
     this.hasAttribute('loading') ? this.#button.setAttribute('aria-label', 'loading') : this.#button.removeAttribute('aria-label');
   }
   /**
-   *
+   * @description 更新button类型
    * @param {'button' | 'submit' | 'reset'} type
    */
   #updateType(type = 'button') {
