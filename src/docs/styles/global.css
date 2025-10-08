@@ -1,6 +1,7 @@
-@layer base, components, utilities;
+@import './tailwindcss@4.presets.css';
 @import './component.css';
 @import './layout.css';
+@import './utility.css';
 
 body {
   margin: 0;

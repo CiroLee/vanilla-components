@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="../favicon.ico" />
     <link rel="stylesheet" href="styles/global.css" />
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <script type="module" src="https://cdn.jsdelivr.net/npm/syntax-highlight-element@latest/+esm"></script>
     <title>vanilla-components | button</title>
   </head>
   <body>
@@ -25,7 +23,7 @@
             </div>
           </div>
           <div slot="code">
-            <code-block id="btn-color-code" language="html" />
+            <syntax-highlight id="btn-color-code" language="html" />
           </div>
         </preview-code-switcher>
         <h4 class="mb-2 mt-3">Variant</h4>
@@ -38,7 +36,7 @@
             </div>
           </div>
           <div slot="code">
-            <code-block id="btn-variant-code" language="html" />
+            <syntax-highlight id="btn-variant-code" language="html" />
           </div>
         </preview-code-switcher>
         <h4 class="mb-2 mt-3">Size</h4>
@@ -51,7 +49,7 @@
             </div>
           </div>
           <div slot="code">
-            <code-block id="btn-size-code" language="html" />
+            <syntax-highlight id="btn-size-code" language="html" />
           </div>
         </preview-code-switcher>
         <h4 class="mb-2 mt-3">Rounded</h4>
@@ -66,7 +64,7 @@
             </div>
           </div>
           <div slot="code">
-            <code-block id="btn-rounded-code" language="html" />
+            <syntax-highlight id="btn-rounded-code" language="html" />
           </div>
         </preview-code-switcher>
         <h4 class="mb-2 mt-3">Loading</h4>
@@ -75,7 +73,7 @@
             <va-button loading>Loading...</va-button>
           </div>
           <div slot="code">
-            <code-block id="btn-loading-code" language="html"><va-button loading>Loading...</va-button></code-block>
+            <syntax-highlight id="btn-loading-code" language="html"><va-button loading>Loading...</va-button></syntax-highlight>
           </div>
         </preview-code-switcher>
         <h4 class="mb-2 mt-3">Disabled</h4>
@@ -90,7 +88,7 @@
             </div>
           </div>
           <div slot="code">
-            <code-block id="btn-disabled-code" language="html" />
+            <syntax-highlight id="btn-disabled-code" language="html" />
           </div>
         </preview-code-switcher>
         <h4 class="mb-2 mt-3">Block</h4>
@@ -99,19 +97,21 @@
             <va-button block>Block</va-button>
           </div>
           <div slot="code">
-            <code-block id="btn-block-code" language="html"><va-button block>Block</va-button></code-block>
+            <syntax-highlight id="btn-block-code" language="html"><va-button block>Block</va-button></syntax-highlight>
           </div>
         </preview-code-switcher>
       </section>
     </va-theme-provider>
   </body>
+  <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.11.1/build/highlight.min.js"></script>
   <script type="module">
     import { colorCode, variantCode, roundedCode, sizeCode, disabledCode } from './codes/button.js';
     import './components/nav-header.js';
     import '../ui/button/index.js';
     import '../ui//theme-provider/index.js';
-    import './components/code-block.js';
+    import './components/syntax-highlight.js';
     import './components/preview-code-switcher.js';
+    import './components/syntax-highlight.js';
 
     const colorCC = document.getElementById('btn-color-code');
     const variantCC = document.getElementById('btn-variant-code');

@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>vanilla-components | modal</title>
     <link rel="stylesheet" href="./styles/global.css" />
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <script type="module" src="https://cdn.jsdelivr.net/npm/syntax-highlight-element@latest/+esm"></script>
   </head>
   <body>
     <va-theme-provider>
@@ -19,10 +17,10 @@
             <va-button id="open-modal-1">open modal</va-button>
           </div>
           <div slot="code">
-            <code-block id="modal-default-code" language="html"></code-block>
+            <syntax-highlight id="modal-default-code" language="html"></syntax-highlight>
           </div>
           <div slot="code">
-            <code-block id="modal-default-code-js" language="js"></code-block>
+            <syntax-highlight id="modal-default-code-js" language="javascript"></syntax-highlight>
           </div>
         </preview-code-switcher>
         <h4 class="mb-2 mt-3">Blur overlay</h4>
@@ -31,7 +29,7 @@
             <va-button id="open-modal-2">open modal</va-button>
           </div>
           <div slot="code">
-            <code-block id="modal-overlay-code" language="html"></code-block>
+            <syntax-highlight id="modal-overlay-code" language="html"></syntax-highlight>
           </div>
         </preview-code-switcher>
         <h4 class="mb-2 mt-3">OverlayClickable</h4>
@@ -40,7 +38,7 @@
             <va-button id="open-modal-3">open modal</va-button>
           </div>
           <div slot="code">
-            <code-block id="modal-overlay-clickable-code" language="html"></code-block>
+            <syntax-highlight id="modal-overlay-clickable-code" language="html"></syntax-highlight>
           </div>
         </preview-code-switcher>
       </section>
@@ -65,9 +63,10 @@
       </va-modal>
     </va-theme-provider>
   </body>
+  <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.11.1/build/highlight.min.js"></script>
   <script type="module">
     import './components/nav-header.js';
-    import './components/code-block.js';
+    import './components/syntax-highlight.js';
     import './components/preview-code-switcher.js';
     import '../ui/theme-provider/index.js';
     import '../ui/modal/index.js';

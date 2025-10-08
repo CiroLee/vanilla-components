@@ -10,8 +10,8 @@ export const defaultModalCodeHtml = `<!--- html -->
 </va-modal>`;
 
 export const defaultModalCodeJs = `// js
-document.querySelectorAll('#modal va-button').forEach((el) => {
-  el.addEventListener('click', () => {
+document.querySelectorAll('#modal va-button').forEach(function(el) {
+  el.addEventListener('click', function() {
     document.getElementById('modal').show = false;
     // 也可使用close方法关闭
     // document.getElementById('modal').close()；

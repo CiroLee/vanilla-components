@@ -1,6 +1,6 @@
 {
   "name": "vanilla-components",
-  "version": "1.0.0",
+  "version": "0.0.1-rc.0",
   "type": "module",
   "description": "vanilla-components is a lightweight UI component library built with native javascript and based on web components. Therefore, you don't need any build tools and can download and use it directly.",
   "main": "dist/vanilla-components.esm.js",
@@ -9,13 +9,27 @@
     "scan": "node build-components.js",
     "build": "node build-components.js && rollup -c rollup.config.js"
   },
+  "files": [
+    "dist"
+  ],
+  "author": {
+    "name": "CiroLee",
+    "email": "ciromail@126.com"
+  },
+  "homepage": "https://vanilla-components.pages.dev",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CiroLee/vanilla-components.git"
+  },
+  "bugs": {
+    "url": "https://github.com/CiroLee/vanilla-components/issues"
+  },
   "keywords": [
     "ui",
     "components",
     "vanilla",
     "web components"
   ],
-  "author": "",
   "license": "MIT",
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^15.2.3",
