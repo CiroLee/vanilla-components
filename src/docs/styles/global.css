@@ -3,6 +3,13 @@
 @import './layout.css';
 @import './utility.css';
 
+/**
+ * 组件的样式或内容在被 Shadow DOM 附加之前、或自定义元素定义完成之前，页面短暂显示了未渲染或未样式化的内容
+ * 造成【闪烁】现象，在根css文件中添加如下样式，可以解决该问题。组件未注册时不可见，完成注册后自动解除
+ */
+*:not(:defined) {
+  visibility: hidden;
+}
 body {
   margin: 0;
   background-color: #f8fafb;
