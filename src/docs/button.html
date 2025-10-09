@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="../favicon.ico" />
     <link rel="stylesheet" href="styles/global.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <title>vanilla-components | button</title>
   </head>
   <body>
@@ -100,6 +101,84 @@
             <syntax-highlight id="btn-block-code" language="html"><va-button block>Block</va-button></syntax-highlight>
           </div>
         </preview-code-switcher>
+        <h4 class="mt-8 mb-2">API</h4>
+        <div class="custom-table">
+          <table>
+            <thead>
+              <tr>
+                <th>属性</th>
+                <th>说明</th>
+                <th>类型</th>
+                <th>默认值</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>color</td>
+                <td>按钮的颜色</td>
+                <td class="text-(--border-color)"><va-tag size="sm">primary</va-tag> | <va-tag size="sm">success</va-tag> | <va-tag size="sm">warning</va-tag> | <va-tag size="sm">danger</va-tag></td>
+                <td><va-tag size="sm">primary</va-tag></td>
+              </tr>
+              <tr>
+                <td>variant</td>
+                <td>按钮的变体</td>
+                <td class="text-(--border-color)"><va-tag size="sm">solid</va-tag> | <va-tag size="sm">outline</va-tag> | <va-tag size="sm">ghost</va-tag></td>
+                <td><va-tag size="sm">solid</va-tag></td>
+              </tr>
+              <tr>
+                <td>size</td>
+                <td>按钮的尺寸</td>
+                <td class="text-(--border-color)"><va-tag size="sm">sm</va-tag> | <va-tag size="sm">md</va-tag> | <va-tag size="sm">lg</va-tag></td>
+                <td><va-tag size="sm">md</va-tag></td>
+              </tr>
+              <tr>
+                <td>rounded</td>
+                <td>按钮的圆角</td>
+                <td class="text-(--border-color)">
+                  <va-tag size="sm">sm</va-tag> | <va-tag size="sm">md</va-tag> | <va-tag size="sm">lg</va-tag> | <va-tag size="sm">full</va-tag> | <va-tag size="sm">none</va-tag>
+                </td>
+                <td><va-tag size="sm">md</va-tag></td>
+              </tr>
+              <tr>
+                <td>disabled</td>
+                <td>按钮的禁用状态</td>
+                <td class="text-(--primary-color)">boolean</td>
+                <td class="text-(--primary-color)">false</td>
+              </tr>
+              <tr>
+                <td>loading</td>
+                <td>按钮是否处于加载状态</td>
+                <td class="text-(--primary-color)">boolean</td>
+                <td class="text-(--primary-color)">false</td>
+              </tr>
+              <tr>
+                <td>block</td>
+                <td>按钮是否为块级按钮</td>
+                <td class="text-(--primary-color)">boolean</td>
+                <td class="text-(--primary-color)">false</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <h4 class="mt-8 mb-2">Event</h4>
+        <div class="custom-table">
+          <table>
+            <thead>
+              <tr>
+                <th>名称</th>
+                <th>说明</th>
+                <th>类型</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>onBtnClock</td>
+                <td>自定义点击事件</td>
+                <td class="text-(--primary-color)">(e: {detail: { originalEvent: Event }}) => void</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </section>
     </va-theme-provider>
   </body>
@@ -109,6 +188,7 @@
     import './components/nav-header.js';
     import '../ui/button/index.js';
     import '../ui//theme-provider/index.js';
+    import '../ui/tag/index.js';
     import './components/syntax-highlight.js';
     import './components/preview-code-switcher.js';
     import './components/syntax-highlight.js';

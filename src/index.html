@@ -5,6 +5,7 @@
     <link rel="icon" href="favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./docs/styles/global.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <title>vanilla-components</title>
   </head>
   <body>
@@ -19,7 +20,7 @@
         <a href="./docs/installation.html" class="mt-8">
           <va-button class="w-32" size="lg">开始使用</va-button>
         </a>
-        <div class="grid w-full md:max-w-6xl mx-auto gap-x-3 gap-y-5 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-12">
+        <div class="grid w-full lg:max-w-4xl xl:max-w-6xl mx-auto gap-x-3 gap-y-5 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-12">
           <show-card href="./docs/button.html" name="Button">
             <va-button class="[&::part(button)]:pointer-events-none">Button</va-button>
           </show-card>
@@ -33,6 +34,9 @@
               </div>
             </div>
           </show-card>
+          <show-card href="./docs/tag.html" name="Tag">
+            <va-tag>Tag</va-tag>
+          </show-card>
         </div>
       </section>
     </va-theme-provider>
@@ -42,6 +46,7 @@
     import './docs/components/nav-header.js';
     import './ui/button/index.js';
     import './ui/modal/index.js';
+    import './ui/tag/index.js';
     import './docs/components/show-card.js';
   </script>
 </html>

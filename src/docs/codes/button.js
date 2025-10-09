@@ -1,4 +1,4 @@
-export const colorCode = `<va-button color="primary rounded-full">Primary</va-button>
+export const colorCode = `<va-button color="primary">Primary</va-button>
 <va-button color="success">Success</va-button>
 <va-button color="warning">Warning</va-button>
 <va-button color="danger">Danger</va-button>`;

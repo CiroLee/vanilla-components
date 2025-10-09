@@ -8,11 +8,47 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   </head>
   <body>
-    <section class="main-container">
-      <h3>安装和使用</h3>
-      <dialog>
-        <p>title</p>
-      </dialog>
-    </section>
+    <va-theme-provider>
+      <nav-header></nav-header>
+      <section class="main-container">
+        <h3 class="mb-3">说明</h3>
+        <p>
+          vanilla-components基于web component开发的轻量级组件，适用于无框架构建的纯粹的前端项目，如果你正在开发一个无框架应用并且想体验组件复用带来的便利，那么<span
+            class="font-semibold text-(--primary-color)"
+            >vanilla-components</span
+          >很适合你。当然，在vue，react等主流框架中，同样可以使用。
+        </p>
+        <h5 class="mt-6 mb-2">CND引入</h5>
+        <div class="bg-[#0d1117] p-2 rounded overflow-auto relative">
+          <div class="mr-10 overflow-auto hidden-scrollbar">
+            <syntax-highlight id="cdn-code" language="html"></syntax-highlight>
+          </div>
+          <copy-button id="copy-cdn-btn" class="absolute right-1 top-1" />
+        </div>
+        <p class="mt-2">vanilla-components引入后会自动全局注册，在页面上直接使用组件即可。</p>
+        <h5 class="mt-6 mb-2">使用</h5>
+        <p class="mb-2">使用va-theme-provider作为根组件包裹其他组件，组件仅提供主题颜色，不影响布局。</p>
+        <div class="bg-[#0d1117] p-2 rounded overflow-auto relative">
+          <syntax-highlight id="usage-code" language="html"></syntax-highlight>
+        </div>
+      </section>
+    </va-theme-provider>
   </body>
+  <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.11.1/build/highlight.min.js"></script>
+  <script type="module">
+    import '../ui/theme-provider/index.js';
+    import './components/nav-header.js';
+    import './components/syntax-highlight.js';
+    import './components/copy-button.js';
+    const cdnStr = '<script type="module" src="https://cdn.jsdelivr.net/npm/@cirolee/vanilla-components@latest/dist/vanilla-components.esm.js"><\/script>';
+    const copyCdnBtn = document.getElementById('copy-cdn-btn');
+    copyCdnBtn.text = cdnStr;
+
+    const cdnCC = document.getElementById('cdn-code');
+    const usageCC = document.getElementById('usage-code');
+    cdnCC.code = cdnStr;
+    usageCC.code = `<va-theme-provider>
+  <va-button>Button</va-button>
+</va-theme-provider>`;
+  </script>
 </html>

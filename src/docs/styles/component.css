@@ -34,4 +34,46 @@
     line-height: 1.5;
     letter-spacing: -0.2px;
   }
+
+  .custom-table {
+    width: 100%;
+    position: relative;
+    border-radius: 4px;
+    overflow: auto;
+    display: block;
+    border: 1px solid var(--border-color);
+    table {
+      width: 100%;
+      table-layout: auto;
+      border-spacing: 0;
+    }
+    thead {
+      border-bottom: 1px solid var(--border-color);
+      background: color-mix(in oklch, black 5%, white 95%);
+    }
+    tr:not(:last-child) {
+      border-bottom: 1px solid color-mix(in oklch, black 8%, white 92%);
+    }
+    th {
+      padding: 10px;
+      font-size: 14px;
+      position: relative;
+      font-weight: 500;
+      text-align: start;
+      &:not(:last-child)::after {
+        content: '';
+        position: absolute;
+        height: 44%;
+        right: 0;
+        top: 50%;
+        translate: 0 -50%;
+        width: 1px;
+        background-color: color-mix(in oklch, black 15%, white 85%);
+      }
+    }
+    td {
+      padding: 12px;
+      font-size: 14px;
+    }
+  }
 }

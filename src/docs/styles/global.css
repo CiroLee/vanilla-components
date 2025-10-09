@@ -1,4 +1,4 @@
-@import './tailwindcss@4.presets.css';
+@layer theme, base, components, utilities;
 @import './component.css';
 @import './layout.css';
 @import './utility.css';

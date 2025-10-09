@@ -1,11 +1,7 @@
 @layer utilities {
-  .mb-2 {
-    margin-bottom: calc(var(--spacing) * 2);
-  }
-  .mb-3 {
-    margin-bottom: calc(var(--spacing) * 3);
-  }
-  .mt-3 {
-    margin-top: calc(var(--spacing) * 3);
+  .hidden-scrollbar {
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
 }

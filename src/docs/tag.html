@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>vanilla-components | tag</title>
+    <link rel="stylesheet" href="./styles/global.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body>
+    <va-theme-provider>
+      <nav-header></nav-header>
+      <section class="main-container">
+        <h2 class="mb-3">Tag</h2>
+        <h4 class="mb-2">Color</h4>
+        <preview-code-switcher>
+          <div slot="preview" class="flex gap-2">
+            <va-tag color="primary">content</va-tag>
+            <va-tag color="success">content</va-tag>
+            <va-tag color="warning">content</va-tag>
+            <va-tag color="danger">content</va-tag>
+          </div>
+          <div slot="code">
+            <syntax-highlight id="tag-color-code" language="html" />
+          </div>
+        </preview-code-switcher>
+        <h4 class="mb-2 mt-3">Variant</h4>
+        <preview-code-switcher>
+          <div slot="preview" class="flex gap-2">
+            <va-tag variant="solid">content</va-tag>
+            <va-tag variant="outline">content</va-tag>
+            <va-tag variant="plain">content</va-tag>
+          </div>
+          <div slot="code">
+            <syntax-highlight id="tag-variant-code" language="html" />
+          </div>
+        </preview-code-switcher>
+        <h4 class="mb-2 mt-3">Size</h4>
+        <preview-code-switcher>
+          <div slot="preview" class="flex items-center gap-2">
+            <va-tag size="sm">content</va-tag>
+            <va-tag size="md">content</va-tag>
+            <va-tag size="lg">content</va-tag>
+          </div>
+          <div slot="code">
+            <syntax-highlight id="tag-size-code" language="html" />
+          </div>
+        </preview-code-switcher>
+        <h4 class="mb-2 mt-3">Rounded</h4>
+        <preview-code-switcher>
+          <div slot="preview" class="flex items-center gap-2">
+            <va-tag rounded="default">content</va-tag>
+            <va-tag rounded="full">content</va-tag>
+          </div>
+          <div slot="code">
+            <syntax-highlight id="tag-rounded-code" language="html" />
+          </div>
+        </preview-code-switcher>
+        <h4 class="mt-8 mb-2">API</h4>
+        <div class="custom-table">
+          <table>
+            <thead>
+              <tr>
+                <th>属性</th>
+                <th>说明</th>
+                <th>类型</th>
+                <th>默认值</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>color</td>
+                <td>tag的颜色</td>
+                <td class="text-(--border-color)"><va-tag size="sm">primary</va-tag> | <va-tag size="sm">success</va-tag> | <va-tag size="sm">warning</va-tag> | <va-tag size="sm">danger</va-tag></td>
+                <td><va-tag size="sm">primary</va-tag></td>
+              </tr>
+              <tr>
+                <td>variant</td>
+                <td>tag的变体</td>
+                <td class="text-(--border-color)"><va-tag size="sm">outline</va-tag> | <va-tag size="sm">solid</va-tag> | <va-tag size="sm">plain</va-tag></td>
+                <td><va-tag size="sm">outline</va-tag></td>
+              </tr>
+              <tr>
+                <td>size</td>
+                <td>tag的尺寸</td>
+                <td class="text-(--border-color)"><va-tag size="sm">sm</va-tag> | <va-tag size="sm">md</va-tag> | <va-tag size="sm">lg</va-tag></td>
+                <td><va-tag size="sm">md</va-tag></td>
+              </tr>
+              <tr>
+                <td>rounded</td>
+                <td>tag的圆角</td>
+                <td class="text-(--border-color)"><va-tag size="sm">default</va-tag> | <va-tag size="sm">full</va-tag></td>
+                <td><va-tag size="sm">default</va-tag></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </va-theme-provider>
+  </body>
+  <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.11.1/build/highlight.min.js"></script>
+  <script type="module">
+    import '../ui/theme-provider/index.js';
+    import '../ui/tag/index.js';
+    import './components/nav-header.js';
+    import './components/syntax-highlight.js';
+    import './components/preview-code-switcher.js';
+
+    import { colorCode, variantCode, sizeCode, roundedCode } from './codes/tag.js';
+
+    const tagColorCC = document.getElementById('tag-color-code');
+    const tagVariantCC = document.getElementById('tag-variant-code');
+    const tagSizeCC = document.getElementById('tag-size-code');
+    const tagRoundedCC = document.getElementById('tag-rounded-code');
+    tagColorCC.code = colorCode;
+    tagVariantCC.code = variantCode;
+    tagSizeCC.code = sizeCode;
+    tagRoundedCC.code = roundedCode;
+  </script>
+</html>
