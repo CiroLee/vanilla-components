@@ -1,24 +1,26 @@
 # vanilla-components
 
-vanilla-components is a lightweight UI component library built with native javascript and based on web components. Therefore, you don’t need any build tools and can download and use it directly.
+简体中文 | [English](READM-EN.md)
 
-🚧 The project is still under rapid development.
+vanilla-components 是一个使用原生 javascript 构建的基于 Web 组件的轻量级 UI 组件库。因此，你可以不依赖任何构建工具和框架，直接下载使用。
 
-your browser should support ES2022 and some new css properties, blow list the browsers that support them
+🚧 当前项目正在开发中。
+
+你的浏览器需要支持 ES2022 和一些新的 css 属性(如`color-mix`函数，项目中有广泛使用)，以下是支持它们的浏览器列表
 
 | Chrome | Firefox | Safari | Edge |
 | ------ | ------- | ------ | ---- |
 | 111+   | 120+    | +16.4  | 111+ |
 
-## Usage
+## 泗洪
 
-import it using a cdn url to use the latest version:
+使用 CND 引入最新版本:
 
 ```html
 <script type="module" src="https://cdn.jsdelivr.net/npm/@cirolee/vanilla-components@latest/dist/vanilla-components.esm.js"></script>
 ```
 
-the you must use `va-theme-provider` as the root element, it just provide theme color, and all other components should be placed inside it.
+你应该将`va-theme-provider` 组件作为根组件，它仅提供主题颜色，其他组件应该放在里面。
 
 ```html
 <body>
@@ -28,6 +30,6 @@ the you must use `va-theme-provider` as the root element, it just provide theme 
 </body>
 ```
 
-## Documentation
+## 文档
 
 [vanilla-components](https://vanilla-components.pages.dev)
