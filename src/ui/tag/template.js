@@ -3,7 +3,7 @@ template.innerHTML = /* html */ `
   <style>
     :host {
       display: inline-flex;
-      height: 24px;
+
     }
     .tag[data-color="success"] {
       --color: var(--success-color);
@@ -25,23 +25,22 @@ template.innerHTML = /* html */ `
     .tag[data-rounded="full"] {
       border-radius: calc(infinity * 1px);
     }
-    :host:has(.tag[data-size="sm"]) {
+    .tag[data-size="sm"] {
       height: 20px;
-      .tag {
-        font-size: 12px;
+      font-size: 12px;
         padding: 0 6px;
-      }
     }
-    :host:has(.tag[data-size="lg"]) {
+    .tag[data-size="lg"] {
       height: 28px;
-      .tag {
-        font-size: 16px;
-        padding: 0 10px;
-      }
+      font-size: 16px;
+      padding: 0 10px;
+    }
+    .tag[data-size="sm"] {
+      height: 20px;
     }
     .tag {
       --color: var(--primary-color);
-      height: 100%;
+      height: 24px;
       padding: 0 8px;
       border-radius: 4px;
       display: inline-flex;
