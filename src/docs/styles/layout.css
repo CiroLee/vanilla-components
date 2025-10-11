@@ -1,13 +1,17 @@
 @layer components {
   .main-container {
-    width: 60%;
-    max-width: 728px;
+    width: 92%;
+    max-width: 1440px;
     margin-inline: auto;
     padding-bottom: 24px;
-    margin-top: 72px;
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(max-content, 240px) 1fr minmax(max-content, 240px);
+    gap: 16px;
     @media (max-width: 768px) {
       width: 100%;
       padding: 0 16px;
+      grid-template-columns: 1fr;
     }
   }
 }

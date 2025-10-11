@@ -12,173 +12,179 @@
     <va-theme-provider>
       <nav-header></nav-header>
       <section class="main-container">
-        <h2 class="mb-3">Button</h2>
-        <h4 class="mb-2">Color</h4>
-        <preview-code-switcher>
-          <div slot="preview">
-            <div class="flex items-center gap-2">
-              <va-button color="primary">Primary</va-button>
-              <va-button color="success">Success</va-button>
-              <va-button color="warning">Warning</va-button>
-              <va-button color="danger">Danger</va-button>
+        <side-nav active="va-button"></side-nav>
+        <section class="mt-18">
+          <h2 class="mb-3">Button</h2>
+          <h4 id="color" class="mb-2">Color</h4>
+          <preview-code-switcher>
+            <div slot="preview">
+              <div class="flex items-center gap-2">
+                <va-button color="primary">Primary</va-button>
+                <va-button color="success">Success</va-button>
+                <va-button color="warning">Warning</va-button>
+                <va-button color="danger">Danger</va-button>
+              </div>
             </div>
-          </div>
-          <div slot="code">
-            <syntax-highlight id="btn-color-code" language="html" />
-          </div>
-        </preview-code-switcher>
-        <h4 class="mb-2 mt-3">Variant</h4>
-        <preview-code-switcher>
-          <div slot="preview">
-            <div class="flex items-center gap-2">
-              <va-button>Solid</va-button>
-              <va-button variant="outline">Outline</va-button>
-              <va-button variant="ghost">Ghost</va-button>
+            <div slot="code">
+              <syntax-highlight id="btn-color-code" language="html" />
             </div>
-          </div>
-          <div slot="code">
-            <syntax-highlight id="btn-variant-code" language="html" />
-          </div>
-        </preview-code-switcher>
-        <h4 class="mb-2 mt-3">Size</h4>
-        <preview-code-switcher>
-          <div slot="preview">
-            <div class="flex items-center gap-2">
-              <va-button size="sm">Small</va-button>
-              <va-button size="md">Medium</va-button>
-              <va-button size="lg">Large</va-button>
+          </preview-code-switcher>
+          <h4 id="variant" class="mb-2 mt-3">Variant</h4>
+          <preview-code-switcher>
+            <div slot="preview">
+              <div class="flex items-center gap-2">
+                <va-button>Solid</va-button>
+                <va-button variant="outline">Outline</va-button>
+                <va-button variant="ghost">Ghost</va-button>
+              </div>
             </div>
-          </div>
-          <div slot="code">
-            <syntax-highlight id="btn-size-code" language="html" />
-          </div>
-        </preview-code-switcher>
-        <h4 class="mb-2 mt-3">Rounded</h4>
-        <preview-code-switcher>
-          <div slot="preview">
-            <div class="flex items-center gap-2">
-              <va-button rounded="full">Full</va-button>
-              <va-button rounded="sm">Small</va-button>
-              <va-button rounded="md">Medium</va-button>
-              <va-button rounded="lg">Large</va-button>
-              <va-button rounded="none">None</va-button>
+            <div slot="code">
+              <syntax-highlight id="btn-variant-code" language="html" />
             </div>
-          </div>
-          <div slot="code">
-            <syntax-highlight id="btn-rounded-code" language="html" />
-          </div>
-        </preview-code-switcher>
-        <h4 class="mb-2 mt-3">Loading</h4>
-        <preview-code-switcher>
-          <div slot="preview">
-            <va-button loading>Loading...</va-button>
-          </div>
-          <div slot="code">
-            <syntax-highlight id="btn-loading-code" language="html"><va-button loading>Loading...</va-button></syntax-highlight>
-          </div>
-        </preview-code-switcher>
-        <h4 class="mb-2 mt-3">Disabled</h4>
-        <preview-code-switcher>
-          <div slot="preview">
-            <div class="flex items-center gap-2">
-              <va-button disabled>Primary</va-button>
-              <va-button disabled color="warning">Warning</va-button>
-              <va-button disabled color="danger">Danger</va-button>
-              <va-button disabled variant="outline">Outline</va-button>
-              <va-button disabled variant="ghost">Ghost</va-button>
+          </preview-code-switcher>
+          <h4 id="size" class="mb-2 mt-3">Size</h4>
+          <preview-code-switcher>
+            <div slot="preview">
+              <div class="flex items-center gap-2">
+                <va-button size="sm">Small</va-button>
+                <va-button size="md">Medium</va-button>
+                <va-button size="lg">Large</va-button>
+              </div>
             </div>
+            <div slot="code">
+              <syntax-highlight id="btn-size-code" language="html" />
+            </div>
+          </preview-code-switcher>
+          <h4 id="rounded" class="mb-2 mt-3">Rounded</h4>
+          <preview-code-switcher>
+            <div slot="preview">
+              <div class="flex items-center gap-2">
+                <va-button rounded="full">Full</va-button>
+                <va-button rounded="sm">Small</va-button>
+                <va-button rounded="md">Medium</va-button>
+                <va-button rounded="lg">Large</va-button>
+                <va-button rounded="none">None</va-button>
+              </div>
+            </div>
+            <div slot="code">
+              <syntax-highlight id="btn-rounded-code" language="html" />
+            </div>
+          </preview-code-switcher>
+          <h4 id="loading" class="mb-2 mt-3">Loading</h4>
+          <preview-code-switcher>
+            <div slot="preview">
+              <va-button loading>Loading...</va-button>
+            </div>
+            <div slot="code">
+              <syntax-highlight id="btn-loading-code" language="html"><va-button loading>Loading...</va-button></syntax-highlight>
+            </div>
+          </preview-code-switcher>
+          <h4 id="disabled" class="mb-2 mt-3">Disabled</h4>
+          <preview-code-switcher>
+            <div slot="preview">
+              <div class="flex items-center gap-2">
+                <va-button disabled>Primary</va-button>
+                <va-button disabled color="warning">Warning</va-button>
+                <va-button disabled color="danger">Danger</va-button>
+                <va-button disabled variant="outline">Outline</va-button>
+                <va-button disabled variant="ghost">Ghost</va-button>
+              </div>
+            </div>
+            <div slot="code">
+              <syntax-highlight id="btn-disabled-code" language="html" />
+            </div>
+          </preview-code-switcher>
+          <h4 id="block" class="mb-2 mt-3">Block</h4>
+          <preview-code-switcher>
+            <div slot="preview">
+              <va-button block>Block</va-button>
+            </div>
+            <div slot="code">
+              <syntax-highlight id="btn-block-code" language="html"><va-button block>Block</va-button></syntax-highlight>
+            </div>
+          </preview-code-switcher>
+          <h4 id="api" class="mt-8 mb-2">API</h4>
+          <div class="custom-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>属性</th>
+                  <th>类型</th>
+                  <th>说明</th>
+                  <th>默认值</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>color</td>
+                  <td class="text-(--border-color)">
+                    <va-tag size="sm">primary</va-tag> | <va-tag size="sm">success</va-tag> | <va-tag size="sm">warning</va-tag> | <va-tag size="sm">danger</va-tag>
+                  </td>
+                  <td>按钮的颜色</td>
+                  <td><va-tag size="sm">primary</va-tag></td>
+                </tr>
+                <tr>
+                  <td>variant</td>
+                  <td class="text-(--border-color)"><va-tag size="sm">solid</va-tag> | <va-tag size="sm">outline</va-tag> | <va-tag size="sm">ghost</va-tag></td>
+                  <td>按钮的变体</td>
+                  <td><va-tag size="sm">solid</va-tag></td>
+                </tr>
+                <tr>
+                  <td>size</td>
+                  <td class="text-(--border-color)"><va-tag size="sm">sm</va-tag> | <va-tag size="sm">md</va-tag> | <va-tag size="sm">lg</va-tag></td>
+                  <td>按钮的尺寸</td>
+                  <td><va-tag size="sm">md</va-tag></td>
+                </tr>
+                <tr>
+                  <td>rounded</td>
+                  <td class="text-(--border-color)">
+                    <va-tag size="sm">sm</va-tag> | <va-tag size="sm">md</va-tag> | <va-tag size="sm">lg</va-tag> | <va-tag size="sm">full</va-tag> | <va-tag size="sm">none</va-tag>
+                  </td>
+                  <td>按钮的圆角</td>
+                  <td><va-tag size="sm">md</va-tag></td>
+                </tr>
+                <tr>
+                  <td>disabled</td>
+                  <td class="text-(--primary-color)">boolean</td>
+                  <td>按钮的禁用状态</td>
+                  <td class="text-(--primary-color)">false</td>
+                </tr>
+                <tr>
+                  <td>loading</td>
+                  <td class="text-(--primary-color)">boolean</td>
+                  <td>按钮是否处于加载状态</td>
+                  <td class="text-(--primary-color)">false</td>
+                </tr>
+                <tr>
+                  <td>block</td>
+                  <td class="text-(--primary-color)">boolean</td>
+                  <td>按钮是否为块级按钮</td>
+                  <td class="text-(--primary-color)">false</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
-          <div slot="code">
-            <syntax-highlight id="btn-disabled-code" language="html" />
+          <h4 id="custom-event" class="mt-8 mb-2">自定义Event</h4>
+          <div class="custom-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>名称</th>
+                  <th>类型</th>
+                  <th>说明</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>va-button-click</td>
+                  <td class="text-(--primary-color)">(e: {detail: { source:'va-button', originalEvent: Event }}) => void</td>
+                  <td>自定义点击事件</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
-        </preview-code-switcher>
-        <h4 class="mb-2 mt-3">Block</h4>
-        <preview-code-switcher>
-          <div slot="preview">
-            <va-button block>Block</va-button>
-          </div>
-          <div slot="code">
-            <syntax-highlight id="btn-block-code" language="html"><va-button block>Block</va-button></syntax-highlight>
-          </div>
-        </preview-code-switcher>
-        <h4 class="mt-8 mb-2">API</h4>
-        <div class="custom-table">
-          <table>
-            <thead>
-              <tr>
-                <th>属性</th>
-                <th>类型</th>
-                <th>说明</th>
-                <th>默认值</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>color</td>
-                <td class="text-(--border-color)"><va-tag size="sm">primary</va-tag> | <va-tag size="sm">success</va-tag> | <va-tag size="sm">warning</va-tag> | <va-tag size="sm">danger</va-tag></td>
-                <td>按钮的颜色</td>
-                <td><va-tag size="sm">primary</va-tag></td>
-              </tr>
-              <tr>
-                <td>variant</td>
-                <td class="text-(--border-color)"><va-tag size="sm">solid</va-tag> | <va-tag size="sm">outline</va-tag> | <va-tag size="sm">ghost</va-tag></td>
-                <td>按钮的变体</td>
-                <td><va-tag size="sm">solid</va-tag></td>
-              </tr>
-              <tr>
-                <td>size</td>
-                <td class="text-(--border-color)"><va-tag size="sm">sm</va-tag> | <va-tag size="sm">md</va-tag> | <va-tag size="sm">lg</va-tag></td>
-                <td>按钮的尺寸</td>
-                <td><va-tag size="sm">md</va-tag></td>
-              </tr>
-              <tr>
-                <td>rounded</td>
-                <td class="text-(--border-color)">
-                  <va-tag size="sm">sm</va-tag> | <va-tag size="sm">md</va-tag> | <va-tag size="sm">lg</va-tag> | <va-tag size="sm">full</va-tag> | <va-tag size="sm">none</va-tag>
-                </td>
-                <td>按钮的圆角</td>
-                <td><va-tag size="sm">md</va-tag></td>
-              </tr>
-              <tr>
-                <td>disabled</td>
-                <td class="text-(--primary-color)">boolean</td>
-                <td>按钮的禁用状态</td>
-                <td class="text-(--primary-color)">false</td>
-              </tr>
-              <tr>
-                <td>loading</td>
-                <td class="text-(--primary-color)">boolean</td>
-                <td>按钮是否处于加载状态</td>
-                <td class="text-(--primary-color)">false</td>
-              </tr>
-              <tr>
-                <td>block</td>
-                <td class="text-(--primary-color)">boolean</td>
-                <td>按钮是否为块级按钮</td>
-                <td class="text-(--primary-color)">false</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <h4 class="mt-8 mb-2">自定义Event</h4>
-        <div class="custom-table">
-          <table>
-            <thead>
-              <tr>
-                <th>名称</th>
-                <th>类型</th>
-                <th>说明</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>va-button-click</td>
-                <td class="text-(--primary-color)">(e: {detail: { source:'va-button', originalEvent: Event }}) => void</td>
-                <td>自定义点击事件</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+        </section>
+        <on-this-page></on-this-page>
       </section>
     </va-theme-provider>
   </body>
@@ -192,6 +198,8 @@
     import './components/syntax-highlight.js';
     import './components/preview-code-switcher.js';
     import './components/syntax-highlight.js';
+    import './components/side-nav.js';
+    import './components/on-this-page.js';
 
     const colorCC = document.getElementById('btn-color-code');
     const variantCC = document.getElementById('btn-variant-code');
