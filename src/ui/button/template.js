@@ -66,7 +66,7 @@ template.innerHTML = /* html */ `
         background-color: color-mix(in oklch, var(--color) 90%, black 10%);
       }
       &:not(:disabled):active {
-        scale: 0.96;
+        scale: 0.98;
       }
       &:focus-visible {
         outline: 2px solid color-mix(in oklch, var(--color) 90%, white 60%);

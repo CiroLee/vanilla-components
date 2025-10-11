@@ -21,6 +21,7 @@ template.innerHTML = /* html */ `
         position: relative;
         padding: 4px;
         z-index: 1;
+        font-size: 14px;
         cursor: pointer;
         &:after {
           content: '';
