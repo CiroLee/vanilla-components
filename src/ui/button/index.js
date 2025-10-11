@@ -89,15 +89,39 @@ class VaButton extends HTMLElement {
   set loading(loading) {
     loading ? this.setAttribute('loading', '') : this.removeAttribute('loading');
   }
+  /**
+   * 通过实例设置按钮变体
+   * @param {'solid' | 'outline'} variant
+   * @example
+   * document.getElementById('va-button').variant = 'outline';
+   */
   set variant(variant) {
     this.setAttribute('variant', variant);
   }
+  /**
+   * 通过实例设置按钮颜色
+   * @param {'primary' | 'success' | 'warning' | 'danger'} color
+   * @example
+   * document.getElementById('va-button').color = 'success';
+   */
   set color(color) {
     this.setAttribute('color', color);
   }
+  /**
+   * 通过实例设置按钮大小
+   * @param {'sm' | 'md' | 'lg'} size
+   * @example
+   * document.getElementById('va-button').size = 'large';
+   */
   set size(size) {
     this.setAttribute('size', size);
   }
+  /**
+   * 通过实例设置按钮圆角
+   * @param {'sm' | 'md' | 'lg' | 'full' | 'none'} rounded
+   * @example
+   * document.getElementById('va-button').rounded = 'lg';
+   */
   set rounded(rounded) {
     this.setAttribute('rounded', rounded);
   }

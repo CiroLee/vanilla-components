@@ -11,92 +11,96 @@
     <va-theme-provider>
       <nav-header></nav-header>
       <section class="main-container">
-        <h2 class="mb-3">Modal</h2>
-        <h4 class="mb-2">Default</h4>
-        <preview-code-switcher>
-          <div slot="preview">
-            <va-button id="open-modal-1">open modal</va-button>
-          </div>
-          <div slot="code">
-            <syntax-highlight id="modal-default-code" language="html"></syntax-highlight>
-          </div>
-          <div slot="code">
-            <syntax-highlight id="modal-default-code-js" language="javascript"></syntax-highlight>
-          </div>
-        </preview-code-switcher>
-        <h4 class="mb-2 mt-3">Blur overlay</h4>
-        <preview-code-switcher>
-          <div slot="preview">
-            <va-button id="open-modal-2">open modal</va-button>
-          </div>
-          <div slot="code">
-            <syntax-highlight id="modal-overlay-code" language="html"></syntax-highlight>
-          </div>
-        </preview-code-switcher>
-        <h4 class="mb-2 mt-3">OverlayClickable</h4>
-        <preview-code-switcher>
-          <div slot="preview">
-            <va-button id="open-modal-3">open modal</va-button>
-          </div>
-          <div slot="code">
-            <syntax-highlight id="modal-overlay-clickable-code" language="html"></syntax-highlight>
-          </div>
-        </preview-code-switcher>
-        <h4 class="mt-8 mb-2">API</h4>
-        <div class="custom-table">
-          <table>
-            <thead>
+        <side-nav active="va-modal"></side-nav>
+        <section class="mt-18">
+          <h2 class="mb-3">Modal</h2>
+          <h4 id="Default" class="mb-2">Default</h4>
+          <preview-code-switcher>
+            <div slot="preview">
+              <va-button id="open-modal-1">open modal</va-button>
+            </div>
+            <div slot="code">
+              <syntax-highlight id="modal-default-code" language="html"></syntax-highlight>
+            </div>
+            <div slot="code">
+              <syntax-highlight id="modal-default-code-js" language="javascript"></syntax-highlight>
+            </div>
+          </preview-code-switcher>
+          <h4 id="Blur-overlay" class="mb-2 mt-3">Blur overlay</h4>
+          <preview-code-switcher>
+            <div slot="preview">
+              <va-button id="open-modal-2">open modal</va-button>
+            </div>
+            <div slot="code">
+              <syntax-highlight id="modal-overlay-code" language="html"></syntax-highlight>
+            </div>
+          </preview-code-switcher>
+          <h4 id="OverlayClickable" class="mb-2 mt-3">OverlayClickable</h4>
+          <preview-code-switcher>
+            <div slot="preview">
+              <va-button id="open-modal-3">open modal</va-button>
+            </div>
+            <div slot="code">
+              <syntax-highlight id="modal-overlay-clickable-code" language="html"></syntax-highlight>
+            </div>
+          </preview-code-switcher>
+          <h4 id="API" class="mt-8 mb-2">API</h4>
+          <div class="custom-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>属性</th>
+                  <th>类型</th>
+                  <th>说明</th>
+                  <th>默认值</th>
+                </tr>
+              </thead>
               <tr>
-                <th>属性</th>
-                <th>类型</th>
-                <th>说明</th>
-                <th>默认值</th>
-              </tr>
-            </thead>
-            <tr>
-              <td>show</td>
-              <td class="text-(--primary-color)">boolean</td>
-              <td>是否显示模态窗</td>
-              <td class="text-(--primary-color)">false</td>
-            </tr>
-            <tr>
-              <td>overlay</td>
-              <td class="text-(--border-color)"><va-tag size="sm">default</va-tag> | <va-tag size="sm">blur</va-tag></td>
-              <td>模态窗遮罩样式</td>
-              <td><va-tag size="sm">default</va-tag></td>
-            </tr>
-            <tr>
-              <td>overlay-clickable</td>
-              <td class="text-(--primary-color)">boolean</td>
-              <td>模态窗遮罩是否可点击关闭</td>
-              <td class="text-(--primary-color)">false</td>
-            </tr>
-          </table>
-        </div>
-        <h4 class="mt-8 mb-2">Event</h4>
-        <div class="custom-table">
-          <table>
-            <thead>
-              <tr>
-                <th>名称</th>
-                <th>类型</th>
-                <th>说明</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>open</td>
-                <td class="text-(--primary-color)">() => void</td>
-                <td>打开模态窗</td>
+                <td>show</td>
+                <td class="text-(--primary-color)">boolean</td>
+                <td>是否显示模态窗</td>
+                <td class="text-(--primary-color)">false</td>
               </tr>
               <tr>
-                <td>close</td>
-                <td class="text-(--primary-color)">() => void</td>
-                <td>关闭模态窗</td>
+                <td>overlay</td>
+                <td class="text-(--border-color)"><va-tag size="sm">default</va-tag> | <va-tag size="sm">blur</va-tag></td>
+                <td>模态窗遮罩样式</td>
+                <td><va-tag size="sm">default</va-tag></td>
               </tr>
-            </tbody>
-          </table>
-        </div>
+              <tr>
+                <td>overlay-clickable</td>
+                <td class="text-(--primary-color)">boolean</td>
+                <td>模态窗遮罩是否可点击关闭</td>
+                <td class="text-(--primary-color)">false</td>
+              </tr>
+            </table>
+          </div>
+          <h4 id="Event" class="mt-8 mb-2">Event</h4>
+          <div class="custom-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>名称</th>
+                  <th>类型</th>
+                  <th>说明</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>open</td>
+                  <td class="text-(--primary-color)">() => void</td>
+                  <td>打开模态窗</td>
+                </tr>
+                <tr>
+                  <td>close</td>
+                  <td class="text-(--primary-color)">() => void</td>
+                  <td>关闭模态窗</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+        <on-this-page></on-this-page>
       </section>
       <va-modal id="modal-1">
         <p slot="title">标题</p>
@@ -128,6 +132,8 @@
     import '../ui/modal/index.js';
     import '../ui/button/index.js';
     import '../ui/tag/index.js';
+    import './components/side-nav.js';
+    import './components/on-this-page.js';
     // codes
     import { defaultModalCodeHtml, defaultModalCodeJs, blurOverlayCode, overlayClickableCode } from './codes/modal.js';
     const modalDefaultCC = document.getElementById('modal-default-code');
