@@ -49,7 +49,7 @@ class SideNav extends HTMLElement {
             font-weight: bold;
           }
         }
-        @media (max-width: 768px) {
+        @media (max-width: 928px) {
           .side-nav {
             display: none;
           }

@@ -57,7 +57,7 @@ class OnThisPage extends HTMLElement {
         .item.active {
           color: var(--primary-color);
         }
-        @media (max-width: 768px) {
+        @media (max-width: 928px) {
           .on-this-page {
             display: none;
           }
