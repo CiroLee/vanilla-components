@@ -26,16 +26,39 @@ class VaTag extends HTMLElement {
       this.#updateRounded(newValue);
     }
   }
-
+  /**
+   * @description 通过实例设置tag属性
+   * @param {'primary' | 'success' | 'warning' | 'danger'} color
+   * @example
+   * document.getElementById('va-tag').color = 'primary';
+   */
   set color(value) {
     this.setAttribute('color', value);
   }
+  /**
+   * @description 通过实例设置tag变体
+   * @param {'solid' | 'outline' | 'plain'} variant
+   * @example
+   * document.getElementById('va-tag').variant = 'outline';
+   */
   set variant(value) {
     this.setAttribute('variant', value);
   }
+  /**
+   * @description 通过实例设置tag尺寸
+   * @param {'sm' | 'md' | 'lg'} size
+   * @example
+   * document.getElementById('va-tag').size = 'lg';
+   */
   set size(value) {
     this.setAttribute('size', value);
   }
+  /**
+   * @description 通过实例设置tag圆角
+   * @param {'default' | 'full'} rounded
+   * @example
+   * document.getElementById('va-tag').rounded = 'full';
+   */
   set rounded(value) {
     this.setAttribute('rounded', value);
   }

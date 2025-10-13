@@ -1,5 +1,10 @@
 export const navigationConfig = [
   {
+    id: 'installation',
+    label: 'Installation',
+    path: './installation.html',
+  },
+  {
     id: 'va-button',
     label: 'Button',
     path: './button.html',
