@@ -22,6 +22,10 @@ template.innerHTML = /* html */ `
         font-size: 18px;
       }
     }
+    .switch-button:has(input:focus-visible) {
+      outline: 2px solid color-mix(in oklch, var(--primary-color) 90%, white 60%);
+      outline-offset: 2px;
+    }
     .switch-button {
       --width: 44px;
       --height: 24px;
