@@ -13,6 +13,8 @@ class VaThemeProvider extends HTMLElement {
           --warning-color: #FFAB1A;
           --success-color: #10CC4B;
           --danger-color: #F03D4F;
+          --inactive-bg-color: color-mix(in oklch, var(--black-color) 12%, white 90%);
+          --disabled-bg-color: color-mix(in oklch, var(--black-color) 8%, white 80%);
           --border-color: color-mix(in oklch, var(--black-color) 15%, white 85%);
           --secondary-text-color: color-mix(in oklch, var(--black-color) 60%, white 40%);
         }

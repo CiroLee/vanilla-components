@@ -19,4 +19,9 @@ export const navigationConfig = [
     label: 'Tag',
     path: './tag.html',
   },
+  {
+    id: 'va-switch',
+    label: 'Switch',
+    path: './switch.html',
+  },
 ];
