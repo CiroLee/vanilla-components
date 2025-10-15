@@ -6,11 +6,11 @@ vanilla-components is a lightweight UI component library built with native javas
 
 🚧 The project is still under rapid development.
 
-your browser should support ES2022 and some new css properties(e.g `color-mix`), blow list the browsers that support them
+your browser should support ES2022 and some new css properties(e.g `color-mix`, `css nesting`, They are widely used in the project), blow list the browsers that support them
 
 | Chrome | Firefox | Safari | Edge |
 | ------ | ------- | ------ | ---- |
-| 111+   | 120+    | +16.4  | 111+ |
+| 120+   | 120+    | +17.2  | 120+ |
 
 ## Usage
 
