@@ -21,7 +21,7 @@ class VaButton extends HTMLElement {
     this.#removeEventListeners();
   }
   static get observedAttributes() {
-    return ['disabled', 'block', 'color', 'variant', 'size', 'rounded', 'loading', 'type'];
+    return ['disabled', 'block', 'color', 'variant', 'size', 'rounded', 'loading', 'type', 'as-icon'];
   }
   attributeChangedCallback(name, oldValue, newValue) {
     switch (name) {
@@ -45,6 +45,9 @@ class VaButton extends HTMLElement {
         break;
       case 'loading':
         this.#updateLoading();
+        break;
+      case 'as-icon':
+        this.#updateAsIcon();
         break;
     }
   }
@@ -125,6 +128,15 @@ class VaButton extends HTMLElement {
   set rounded(rounded) {
     this.setAttribute('rounded', rounded);
   }
+  /**
+   * @description 通过实例设置按钮是否为图标按钮
+   * @param {boolean} value
+   * @example
+   * document.getElementById('va-button').asIcon = true;
+   */
+  set asIcon(value) {
+    this.setAttribute('as-icon', value);
+  }
   #updateBlock() {
     this.classList.toggle('block', this.hasAttribute('block'));
   }
@@ -160,6 +172,9 @@ class VaButton extends HTMLElement {
   #updateRounded(rounded) {
     this.#button.setAttribute('data-rounded', rounded);
   }
+  /**
+   * @description 显示加载状态
+   */
   #updateLoading() {
     this.#button.setAttribute('data-loading', this.hasAttribute('loading'));
     this.hasAttribute('loading') ? this.#button.setAttribute('aria-label', 'loading') : this.#button.removeAttribute('aria-label');
@@ -170,5 +185,11 @@ class VaButton extends HTMLElement {
    */
   #updateType(type = 'button') {
     this.#button.setAttribute('type', type);
+  }
+  /**
+   * @description 更新button是否为图标按钮
+   */
+  #updateAsIcon() {
+    this.#button.setAttribute('data-icon', this.hasAttribute('as-icon'));
   }
 }
