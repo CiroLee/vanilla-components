@@ -57,6 +57,7 @@ class SyntaxHighlight extends HTMLElement {
       white-space: pre;
       display: block;
       color: white;
+      max-width: 600px;
       pre {
         margin: 0;
       }

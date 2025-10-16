@@ -37,6 +37,11 @@ template.innerHTML = /* html */ `
     button[data-rounded="none"] {
       border-radius: 0;
     }
+    button[data-icon] {
+      aspect-ratio: 1;
+      padding: 0;
+      overflow: hidden;
+    }
     button {
       --color: var(--primary-color);
       width: 100%;

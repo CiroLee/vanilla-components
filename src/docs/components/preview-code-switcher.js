@@ -17,7 +17,7 @@ template.innerHTML = /* html */ `
         padding: 0 10px;
         border-radius: 0;
         color: var(--black-color);
-        background-color:  #f1f5fa;
+        background-color:  #f9f9f9;
         position: relative;
         padding: 4px;
         z-index: 1;
@@ -36,7 +36,7 @@ template.innerHTML = /* html */ `
         }
         &.active::after {
           background-color: white;
-          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
         }
       }
     }

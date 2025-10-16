@@ -21,3 +21,15 @@ export const disabledCode = `<va-button disabled>Primary</va-button>
 <va-button disabled color="danger">Danger</va-button>
 <va-button disabled variant="outline">Outline</va-button>
 <va-button disabled variant="ghost">Ghost</va-button>`;
+export const asIconCode = `<!-- use iconify-icon  -->
+<script src="https://cdn.jsdelivr.net/npm/iconify-icon@3.0.0/dist/iconify-icon.min.js" defer></script>
+
+<va-button as-icon>
+  <iconify-icon icon="lucide:home" width="20"></iconify-icon>
+</va-button>
+<va-button as-icon variant="outline">
+  <iconify-icon icon="lucide:home" width="20"></iconify-icon>
+</va-button>
+<va-button as-icon variant="ghost">
+  <iconify-icon icon="lucide:home" width="20"></iconify-icon>
+</va-button>`;

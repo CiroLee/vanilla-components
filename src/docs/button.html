@@ -6,6 +6,7 @@
     <link rel="icon" href="../favicon.ico" />
     <link rel="stylesheet" href="styles/global.css" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/iconify-icon@3.0.0/dist/iconify-icon.min.js" defer></script>
     <title>vanilla-components | button</title>
   </head>
   <body>
@@ -68,6 +69,25 @@
             </div>
             <div slot="code">
               <syntax-highlight id="btn-rounded-code" language="html" />
+            </div>
+          </preview-code-switcher>
+          <h4 id="as-icon" class="mt-3 mb-2">AsIcon</h4>
+          <preview-code-switcher>
+            <div slot="preview">
+              <div class="flex items-center gap-2">
+                <va-button as-icon>
+                  <iconify-icon icon="lucide:home" width="18"></iconify-icon>
+                </va-button>
+                <va-button as-icon variant="outline">
+                  <iconify-icon icon="lucide:home" width="18"></iconify-icon>
+                </va-button>
+                <va-button as-icon variant="ghost">
+                  <iconify-icon icon="lucide:home" width="18"></iconify-icon>
+                </va-button>
+              </div>
+            </div>
+            <div slot="code">
+              <syntax-highlight id="btn-as-icon-code" language="html"></syntax-highlight>
             </div>
           </preview-code-switcher>
           <h4 id="loading" class="mb-2 mt-3">Loading</h4>
@@ -169,6 +189,13 @@
                   <td>否</td>
                   <td class="text-(--primary-color)">false</td>
                 </tr>
+                <tr>
+                  <td>as-icon</td>
+                  <td class="text-(--primary-color)">boolean</td>
+                  <td>是否为图标按钮</td>
+                  <td>否</td>
+                  <td class="text-(--primary-color)">false</td>
+                </tr>
               </tbody>
             </table>
           </div>
@@ -198,7 +225,7 @@
   </body>
   <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.11.1/build/highlight.min.js"></script>
   <script type="module">
-    import { colorCode, variantCode, roundedCode, sizeCode, disabledCode } from './codes/button.js';
+    import { colorCode, variantCode, roundedCode, sizeCode, disabledCode, asIconCode } from './codes/button.js';
     import './components/nav-header.js';
     import '../ui/button/index.js';
     import '../ui//theme-provider/index.js';
@@ -215,11 +242,13 @@
     const sizeCC = document.getElementById('btn-size-code');
     const disabledCC = document.getElementById('btn-disabled-code');
     const blockCC = document.getElementById('btn-block-code');
+    const asIconCC = document.getElementById('btn-as-icon-code');
     colorCC.code = colorCode;
     variantCC.code = variantCode;
     roundedCC.code = roundedCode;
     sizeCC.code = sizeCode;
     disabledCC.code = disabledCode;
+    asIconCC.code = asIconCode;
     blockCC.ignore = `class="block"`;
   </script>
 </html>
