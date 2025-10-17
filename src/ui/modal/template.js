@@ -6,9 +6,9 @@ template.innerHTML = /* html */ `
       border: 1px solid var(--border-color);
       padding: 14px;
       outline: 0;
-      box-shadow: 0 6px 14px -4px rgb(0 0 0 / 8%);
+      box-shadow: 0 6px 14px -4px rgb(0 0 0 / 30%);
       border-radius: 6px;
-      position: relative;
+      position: fixed;
       &::backdrop {
         background-color: rgb(0 0 0 / 40%);
       }

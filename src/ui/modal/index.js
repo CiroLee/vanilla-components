@@ -51,6 +51,7 @@ class VaModal extends HTMLElement {
   // 打开modal
   open() {
     this.#dialog.showModal();
+    this.#toggleRootScroll(false);
     this.#dialog.animate(
       {
         translate: ['0 20px', '0 0'],
@@ -99,6 +100,7 @@ class VaModal extends HTMLElement {
     Promise.all(animations.map((ani) => ani.finished)).then(() => {
       this.removeAttribute('show');
       this.#dialog.close();
+      this.#toggleRootScroll(true);
     });
   }
   #overlayClick(e) {
@@ -119,5 +121,9 @@ class VaModal extends HTMLElement {
   }
   #updateOverlayClickable() {
     this.overlayClickable = this.hasAttribute('overlay-clickable');
+  }
+  #toggleRootScroll(enable) {
+    const root = document.querySelector(':root');
+    enable ? root.removeAttribute('style') : root.setAttribute('style', 'overflow: hidden;');
   }
 }
