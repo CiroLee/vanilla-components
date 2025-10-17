@@ -99,7 +99,6 @@ template.innerHTML = /* html */ `
           background-color: color-mix(in oklch, var(--color) 16%, white 0%);
         }
       }
-
     }
   </style>
   <button part="button"><slot></slot></button>

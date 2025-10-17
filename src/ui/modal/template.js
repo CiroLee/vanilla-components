@@ -41,12 +41,10 @@ template.innerHTML = /* html */ `
         inset: 50% 0 0 50%;
         translate: -50% -50%;
         border-radius: 2px;
-
       }
       &::after {
         rotate: -45deg;
       }
-
     }
     .header {
       display: flex;
@@ -69,7 +67,6 @@ template.innerHTML = /* html */ `
       max-height: 56vh;
       overflow-y: auto;
     }
-
   </style>
   <dialog part="modal">
     <div part="modal-header" class="header" aria-label="modal-header">
