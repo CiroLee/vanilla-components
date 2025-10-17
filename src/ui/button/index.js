@@ -53,7 +53,7 @@ class VaButton extends HTMLElement {
   }
   #addEventListeners() {
     this.#handleClick = (e) => {
-      if (!this.disabled) {
+      if (!this.disabled && !this.hasAttribute('loading')) {
         this.dispatchEvent(
           new CustomEvent('va-button-click', {
             bubbles: true,

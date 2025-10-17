@@ -33,3 +33,7 @@ export const asIconCode = `<!-- use iconify-icon  -->
 <va-button as-icon variant="ghost">
   <iconify-icon icon="lucide:home" width="20"></iconify-icon>
 </va-button>`;
+export const loadingCode = `<va-button loading>
+  <iconify-icon icon="svg-spinners:90-ring" width="18"></iconify-icon>
+  Loading...
+</va-button>`;

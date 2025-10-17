@@ -5,7 +5,11 @@ template.innerHTML = /* html */ `
       display: inline-flex;
     }
     :host(.block) {
-      display:flex;
+      display: flex;
+    }
+    /** 兼容button按钮的原生键盘事件，space激活，enter提交 */
+    :host(:active) button:not(:disabled,[data-loading]) {
+      scale: 0.98;
     }
     button[data-color="danger"] {
       --color: var(--danger-color);
@@ -70,7 +74,7 @@ template.innerHTML = /* html */ `
       &:not(:disabled):hover {
         background-color: color-mix(in oklch, var(--color) 90%, black 10%);
       }
-      &:not(:disabled):active {
+      &:not(:disabled,[data-loading]):active {
         scale: 0.98;
       }
       &:focus-visible {

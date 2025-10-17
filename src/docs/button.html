@@ -93,10 +93,13 @@
           <h4 id="loading" class="mb-2 mt-3">Loading</h4>
           <preview-code-switcher>
             <div slot="preview">
-              <va-button loading>Loading...</va-button>
+              <va-button loading>
+                <iconify-icon icon="svg-spinners:90-ring" width="18"></iconify-icon>
+                Loading...
+              </va-button>
             </div>
             <div slot="code">
-              <syntax-highlight id="btn-loading-code" language="html"><va-button loading>Loading...</va-button></syntax-highlight>
+              <syntax-highlight id="btn-loading-code" language="html"></syntax-highlight>
             </div>
           </preview-code-switcher>
           <h4 id="disabled" class="mb-2 mt-3">Disabled</h4>
@@ -225,7 +228,7 @@
   </body>
   <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.11.1/build/highlight.min.js"></script>
   <script type="module">
-    import { colorCode, variantCode, roundedCode, sizeCode, disabledCode, asIconCode } from './codes/button.js';
+    import { colorCode, variantCode, roundedCode, sizeCode, disabledCode, asIconCode, loadingCode } from './codes/button.js';
     import './components/nav-header.js';
     import '../ui/button/index.js';
     import '../ui//theme-provider/index.js';
@@ -243,12 +246,14 @@
     const disabledCC = document.getElementById('btn-disabled-code');
     const blockCC = document.getElementById('btn-block-code');
     const asIconCC = document.getElementById('btn-as-icon-code');
+    const loadingCC = document.getElementById('btn-loading-code');
     colorCC.code = colorCode;
     variantCC.code = variantCode;
     roundedCC.code = roundedCode;
     sizeCC.code = sizeCode;
     disabledCC.code = disabledCode;
     asIconCC.code = asIconCode;
+    loadingCC.code = loadingCode;
     blockCC.ignore = `class="block"`;
   </script>
 </html>
