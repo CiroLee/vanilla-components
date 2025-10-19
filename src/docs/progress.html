@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>vanilla-components | progress</title>
+    <link rel="stylesheet" href="./styles/global.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body>
+    <va-theme-provider>
+      <nav-header></nav-header>
+      <section class="main-container">
+        <side-nav active="va-progress"></side-nav>
+        <section class="mt-18">
+          <h2 class="mb-3">Progress</h2>
+          <h4 id="Default" class="mb-2">Default</h4>
+          <preview-code-switcher>
+            <div slot="preview">
+              <va-progress value="30" class="w-80"></va-progress>
+            </div>
+            <div slot="code">
+              <syntax-highlight language="html"> <va-progress value="30"></va-progress></syntax-highlight>
+            </div>
+          </preview-code-switcher>
+          <h4 id="Color" class="mt-3 mb-2">Color</h4>
+          <preview-code-switcher>
+            <div slot="preview" class="space-y-4">
+              <va-progress value="30" class="w-80" color="primary"></va-progress>
+              <va-progress value="30" class="w-80" color="success"></va-progress>
+              <va-progress value="30" class="w-80" color="warning"></va-progress>
+              <va-progress value="30" class="w-80" color="danger"></va-progress>
+            </div>
+            <div slot="code">
+              <syntax-highlight id="progress-color-code" language="html"></syntax-highlight>
+            </div>
+          </preview-code-switcher>
+          <h4 id="Size" class="mt-3 mb-2">Size</h4>
+          <preview-code-switcher>
+            <div slot="preview" class="space-y-4">
+              <va-progress value="30" size="sm" class="w-80"></va-progress>
+              <va-progress value="30" size="md" class="w-80"></va-progress>
+              <va-progress value="30" size="lg" class="w-80"></va-progress>
+            </div>
+            <div slot="code">
+              <syntax-highlight id="progress-size-code" language="html"></syntax-highlight>
+            </div>
+          </preview-code-switcher>
+          <h4 id="Dynamic" class="mb-2 mt-3">Dynamic</h4>
+          <preview-code-switcher>
+            <div slot="preview" class="space-y-2">
+              <div class="flex items-center gap-2">
+                <va-progress class="w-80" id="dynamic-progress"></va-progress>
+                <span class="text-sm" id="progress-value">0%</span>
+              </div>
+              <va-button id="start-progress-btn">start</va-button>
+            </div>
+            <div slot="code">
+              <syntax-highlight id="dynamic-progress-html-code" language="html"></syntax-highlight>
+              <syntax-highlight id="dynamic-progress-js-code" language="javascript"></syntax-highlight>
+            </div>
+          </preview-code-switcher>
+          <h4 id="API" class="mt-8 mb-2">API</h4>
+          <div class="custom-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>属性</th>
+                  <th>类型</th>
+                  <th>说明</th>
+                  <th>必填</th>
+                  <th>默认值</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>value</td>
+                  <td class="text-(--primary-color)">number</td>
+                  <td>进度条当前值，最小为0，最大为<span class="text-(--primary-color)">max</span></td>
+                  <td>否</td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <td>max</td>
+                  <td class="text-(--primary-color)">number</td>
+                  <td>进度条的最大值，默认为100</td>
+                  <td>否</td>
+                  <td class="text-(--primary-color)">100</td>
+                </tr>
+                <tr>
+                  <td>color</td>
+                  <td class="text-(--border-color)"><va-tag>primary</va-tag> | <va-tag>success</va-tag> | <va-tag>warning</va-tag> | <va-tag>danger</va-tag></td>
+                  <td>进度条主题颜色</td>
+                  <td>否</td>
+                  <td><va-tag>primary</va-tag></td>
+                </tr>
+                <tr>
+                  <td>size</td>
+                  <td class="text-(--border-color)"><va-tag>sm</va-tag> | <va-tag>md</va-tag> | <va-tag>lg</va-tag></td>
+                  <td>进度条尺寸</td>
+                  <td>否</td>
+                  <td><va-tag>md</va-tag></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+        <on-this-page></on-this-page>
+      </section>
+    </va-theme-provider>
+  </body>
+  <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.11.1/build/highlight.min.js"></script>
+  <script type="module">
+    import { colorCode, sizeCode, dynamicHtmlCode, dynamicJsCode } from './codes/progress.js';
+    import '../ui/theme-provider/index.js';
+    import '../ui/progress/index.js';
+    import '../ui/button/index.js';
+    import '../ui/tag/index.js';
+    import './components/nav-header.js';
+    import './components/side-nav.js';
+    import './components/on-this-page.js';
+    import './components/preview-code-switcher.js';
+    import './components/syntax-highlight.js';
+
+    const colorCC = document.getElementById('progress-color-code');
+    const sizeCC = document.getElementById('progress-size-code');
+    const dynamicProgressHtmlCC = document.getElementById('dynamic-progress-html-code');
+    const dynamicProgressJsCC = document.getElementById('dynamic-progress-js-code');
+    colorCC.code = colorCode;
+    sizeCC.code = sizeCode;
+    dynamicProgressHtmlCC.code = dynamicHtmlCode;
+    dynamicProgressJsCC.code = dynamicJsCode;
+
+    const dynamicProgress = document.getElementById('dynamic-progress');
+    const startProgressBtn = document.getElementById('start-progress-btn');
+    const progressValue = document.getElementById('progress-value');
+
+    let timer;
+    startProgressBtn.addEventListener('va-button-click', () => {
+      timer && clearInterval(timer);
+      let val = 0;
+      timer = setInterval(() => {
+        val += 2;
+        if (val >= 100) {
+          clearInterval(timer);
+        }
+        dynamicProgress.value = val;
+        progressValue.innerText = val + '%';
+      }, 100);
+    });
+  </script>
+</html>
