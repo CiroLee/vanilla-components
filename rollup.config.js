@@ -15,6 +15,28 @@ const banner = `/**
  * @repository ${repository}
  * @date ${date}
  */`;
+// plugin - 删除style的注释
+function removeStyleComments() {
+  return {
+    name: 'remove-style-comments',
+    generateBundle(_, bundle) {
+      for (const file of Object.values(bundle)) {
+        if (file.type === 'chunk') {
+          file.code = file.code.replace(/<style[^>]*>[\s\S]*?<\/style>/g, (styleBlock) => styleBlock.replace(/\/\*[\s\S]*?\*\//g, ''));
+        }
+      }
+    },
+  };
+}
+const commonPlugins = [
+  removeStyleComments(),
+  resolve(),
+  terser({
+    format: {
+      comments: false, // 删除注释
+    },
+  }),
+];
 export default [
   // ES模块格式
   {
@@ -27,8 +49,7 @@ export default [
     plugins: [
       // 构建前删除 dist 目录（只在第一个配置中执行）
       del({ targets: 'dist/*' }),
-      resolve(),
-      terser(),
+      ...commonPlugins,
     ],
   },
   // UMD格式
@@ -39,6 +60,6 @@ export default [
       format: 'umd',
       banner,
     },
-    plugins: [resolve(), terser()],
+    plugins: commonPlugins,
   },
 ];

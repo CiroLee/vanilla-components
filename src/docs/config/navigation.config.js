@@ -24,4 +24,9 @@ export const navigationConfig = [
     label: 'Switch',
     path: './switch.html',
   },
+  {
+    id: 'va-progress',
+    label: 'Progress',
+    path: './progress.html',
+  },
 ];
