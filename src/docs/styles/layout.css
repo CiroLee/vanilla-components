@@ -14,4 +14,11 @@
       display: block;
     }
   }
+  .enum-tags {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    flex-wrap: wrap;
+    color: var(--border-color);
+  }
 }

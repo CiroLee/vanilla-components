@@ -76,13 +76,13 @@
             <div slot="preview">
               <div class="flex items-center gap-2">
                 <va-button as-icon>
-                  <iconify-icon icon="lucide:home" width="18"></iconify-icon>
+                  <iconify-icon icon="lucide:home" width="18" noobserver></iconify-icon>
                 </va-button>
                 <va-button as-icon variant="outline">
-                  <iconify-icon icon="lucide:home" width="18"></iconify-icon>
+                  <iconify-icon icon="lucide:home" width="18" noobserver></iconify-icon>
                 </va-button>
                 <va-button as-icon variant="ghost">
-                  <iconify-icon icon="lucide:home" width="18"></iconify-icon>
+                  <iconify-icon icon="lucide:home" width="18" noobserver></iconify-icon>
                 </va-button>
               </div>
             </div>
@@ -94,7 +94,7 @@
           <preview-code-switcher>
             <div slot="preview">
               <va-button loading>
-                <iconify-icon icon="svg-spinners:90-ring" width="18"></iconify-icon>
+                <iconify-icon icon="svg-spinners:90-ring" width="18" noobserver></iconify-icon>
                 Loading...
               </va-button>
             </div>
@@ -141,30 +141,28 @@
               <tbody>
                 <tr>
                   <td>color</td>
-                  <td class="text-(--border-color)">
-                    <va-tag size="sm">primary</va-tag> | <va-tag size="sm">success</va-tag> | <va-tag size="sm">warning</va-tag> | <va-tag size="sm">danger</va-tag>
-                  </td>
+                  <td class="enum-tags"><va-tag size="sm">primary</va-tag> | <va-tag size="sm">success</va-tag> | <va-tag size="sm">warning</va-tag> | <va-tag size="sm">danger</va-tag></td>
                   <td>按钮的颜色</td>
                   <td>否</td>
                   <td><va-tag size="sm">primary</va-tag></td>
                 </tr>
                 <tr>
                   <td>variant</td>
-                  <td class="text-(--border-color)"><va-tag size="sm">solid</va-tag> | <va-tag size="sm">outline</va-tag> | <va-tag size="sm">ghost</va-tag></td>
+                  <td class="enum-tags"><va-tag size="sm">solid</va-tag> | <va-tag size="sm">outline</va-tag> | <va-tag size="sm">ghost</va-tag></td>
                   <td>按钮的变体</td>
                   <td>否</td>
                   <td><va-tag size="sm">solid</va-tag></td>
                 </tr>
                 <tr>
                   <td>size</td>
-                  <td class="text-(--border-color)"><va-tag size="sm">sm</va-tag> | <va-tag size="sm">md</va-tag> | <va-tag size="sm">lg</va-tag></td>
+                  <td class="enum-tags"><va-tag size="sm">sm</va-tag> | <va-tag size="sm">md</va-tag> | <va-tag size="sm">lg</va-tag></td>
                   <td>按钮的尺寸</td>
                   <td>否</td>
                   <td><va-tag size="sm">md</va-tag></td>
                 </tr>
                 <tr>
                   <td>rounded</td>
-                  <td class="text-(--border-color)">
+                  <td class="enum-tags">
                     <va-tag size="sm">sm</va-tag> | <va-tag size="sm">md</va-tag> | <va-tag size="sm">lg</va-tag> | <va-tag size="sm">full</va-tag> | <va-tag size="sm">none</va-tag>
                   </td>
                   <td>按钮的圆角</td>
