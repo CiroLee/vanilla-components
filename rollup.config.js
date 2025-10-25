@@ -1,7 +1,7 @@
 import terser from '@rollup/plugin-terser';
 import resolve from '@rollup/plugin-node-resolve';
 import del from 'rollup-plugin-delete';
-import pkg from './package.json';
+import pkg from './package.json' with { type: 'json' };
 
 const repository = pkg.repository.url.replace(/(.+)(:\/\/.+)\.git$/, 'https$2');
 const now = new Date();
