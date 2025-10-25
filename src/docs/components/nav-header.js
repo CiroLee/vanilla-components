@@ -8,7 +8,7 @@ template.innerHTML = /* html */ `
       padding: 0 14%;
       height: 56px;
       position: fixed;
-      z-index: 999;
+      z-index: 10;
       top: 0;
       width: 100vw;
       box-sizing: border-box;
