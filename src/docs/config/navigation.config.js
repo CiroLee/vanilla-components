@@ -29,4 +29,9 @@ export const navigationConfig = [
     label: 'Progress',
     path: './progress.html',
   },
+  {
+    id: 'va-loading',
+    label: 'Loading',
+    path: './loading.html',
+  },
 ];

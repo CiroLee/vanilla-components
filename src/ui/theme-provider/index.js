@@ -17,6 +17,8 @@ class VaThemeProvider extends HTMLElement {
           --disabled-bg-color: color-mix(in oklch, var(--black-color) 8%, white 80%);
           --border-color: color-mix(in oklch, var(--black-color) 15%, white 85%);
           --secondary-text-color: color-mix(in oklch, var(--black-color) 60%, white 40%);
+
+          --z-loading: 100;
         }
       </style>
       <slot></slot>

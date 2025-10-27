@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>vanilla-components | loading</title>
+    <link rel="stylesheet" href="./styles/global.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body>
+    <va-theme-provider>
+      <nav-header></nav-header>
+      <section class="main-container">
+        <side-nav active="va-loading"></side-nav>
+        <section class="mt-18">
+          <h2 class="mb-3">Loading</h2>
+          <h4 id="Default" class="mb-2">Default</h4>
+          <preview-code-switcher>
+            <div slot="preview">
+              <va-button id="open-loading">open loading</va-button>
+            </div>
+            <div slot="code">
+              <syntax-highlight id="loading-default-html-code" language="html"></syntax-highlight>
+            </div>
+            <div slot="code">
+              <syntax-highlight id="loading-default-js-code" language="js"></syntax-highlight>
+            </div>
+          </preview-code-switcher>
+          <h4 class="mt-3 mb-2" id="blur">Blur</h4>
+          <preview-code-switcher>
+            <div slot="preview">
+              <va-button id="open-loading-2">blur loading</va-button>
+            </div>
+            <div slot="code">
+              <syntax-highlight language="html"><va-loading blur></va-loading></syntax-highlight>
+            </div>
+          </preview-code-switcher>
+          <h4 class="mb-2 mt-3" id="text">Text</h4>
+          <preview-code-switcher>
+            <div slot="preview">
+              <va-button id="open-loading-3">text loading</va-button>
+            </div>
+            <div slot="code">
+              <syntax-highlight language="html"><va-loading text="loading..."></va-loading></syntax-highlight>
+            </div>
+          </preview-code-switcher>
+          <va-loading id="loading"></va-loading>
+          <h4 id="API" class="mt-8 mb-2">API</h4>
+          <div class="custom-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>html属性</th>
+                  <th>js属性</th>
+                  <th>类型</th>
+                  <th>说明</th>
+                  <th>必填</th>
+                  <th>默认值</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>text</td>
+                  <td>text</td>
+                  <td class="text-(--primary-color)">string</td>
+                  <td>loading文案</td>
+                  <td>否</td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <td>blur</td>
+                  <td>blur</td>
+                  <td class="text-(--primary-color)">boolean</td>
+                  <td>loading背景是否模糊</td>
+                  <td>否</td>
+                  <td class="text-(--primary-color)">false</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <h4 id="custom-event" class="mt-8 mb-2">Event</h4>
+          <div class="custom-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>名称</th>
+                  <th>类型</th>
+                  <th>说明</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>show</td>
+                  <td class="text-(--primary-color)">() => void</td>
+                  <td>显示loading</td>
+                </tr>
+                <tr>
+                  <td>hide</td>
+                  <td class="text-(--primary-color)">() => void</td>
+                  <td>关闭loading</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+        <on-this-page></on-this-page>
+      </section>
+    </va-theme-provider>
+  </body>
+  <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.11.1/build/highlight.min.js"></script>
+  <script type="module">
+    import { defaultHtmlCode, defaultJsCode } from './codes/loading.js';
+    import './components/nav-header.js';
+    import './components/syntax-highlight.js';
+    import './components/preview-code-switcher.js';
+    import '../ui/theme-provider/index.js';
+    import '../ui/button/index.js';
+    import '../ui/tag/index.js';
+    import '../ui/loading/index.js';
+    import './components/side-nav.js';
+    import './components/on-this-page.js';
+
+    const defaultHtmlCC = document.getElementById('loading-default-html-code');
+    const defaultJsCC = document.getElementById('loading-default-js-code');
+    defaultHtmlCC.code = defaultHtmlCode;
+    defaultJsCC.code = defaultJsCode;
+
+    const openLoadingBtn = document.getElementById('open-loading');
+    openLoadingBtn.addEventListener('click', () => {
+      document.getElementById('loading').show();
+      setTimeout(() => {
+        document.getElementById('loading').hide();
+      }, 2500);
+    });
+
+    const openLoadingBtn2 = document.getElementById('open-loading-2');
+    openLoadingBtn2.addEventListener('click', () => {
+      document.getElementById('loading').blur = true;
+      document.getElementById('loading').show();
+      setTimeout(() => {
+        document.getElementById('loading').hide();
+      }, 2500);
+    });
+
+    const openLoadingBtn3 = document.getElementById('open-loading-3');
+    openLoadingBtn3.addEventListener('click', () => {
+      document.getElementById('loading').text = 'loading...';
+      document.getElementById('loading').show();
+      setTimeout(() => {
+        document.getElementById('loading').hide();
+      }, 2500);
+    });
+  </script>
+</html>
