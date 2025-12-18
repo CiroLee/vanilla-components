@@ -21,12 +21,12 @@ template.innerHTML = /* html */ `
       --color: var(--success-color);
     }
     button[data-size="sm"] {
-      height: 24px;
+      height: 28px;
       font-size: 12px;
       padding: 0 10px;
     }
     button[data-size="lg"] {
-      height: 40px;
+      height: 44px;
       font-size: 16px;
     }
     button[data-rounded="sm"] {
@@ -58,7 +58,7 @@ template.innerHTML = /* html */ `
       color: white;
       font-size: 14px;
       padding: 0 16px;
-      height: 32px;
+      height: 36px;
       border-radius: 6px;
       transition-property: background-color,scale;
       transition-duration: 0.2s;

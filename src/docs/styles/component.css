@@ -75,5 +75,8 @@
       padding: 12px;
       font-size: 14px;
     }
+    td code {
+      font-size: 14px;
+    }
   }
 }
