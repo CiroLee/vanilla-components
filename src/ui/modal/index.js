@@ -52,56 +52,11 @@ class VaModal extends HTMLElement {
   open() {
     this.#dialog.showModal();
     this.#toggleRootScroll(false);
-    this.#dialog.animate(
-      {
-        translate: ['0 20px', '0 0'],
-        opacity: [0, 1],
-      },
-      {
-        duration: 150,
-        fill: 'both',
-        easing: 'ease-in',
-      },
-    );
-    this.#dialog.animate(
-      { opacity: [0, 1] },
-      {
-        duration: 150,
-        fill: 'both',
-        easing: 'ease-in',
-        pseudoElement: '::backdrop',
-      },
-    );
   }
   // 关闭modal
   close() {
-    const animations = [
-      this.#dialog.animate(
-        {
-          translate: ['0 0', '0 20px'],
-          opacity: [1, 0],
-        },
-        {
-          duration: 150,
-          fill: 'both',
-          easing: 'ease-in',
-        },
-      ),
-      this.#dialog.animate(
-        { opacity: [1, 0] },
-        {
-          duration: 150,
-          fill: 'both',
-          easing: 'ease-in',
-          pseudoElement: '::backdrop',
-        },
-      ),
-    ];
-    Promise.all(animations.map((ani) => ani.finished)).then(() => {
-      this.removeAttribute('show');
-      this.#dialog.close();
-      this.#toggleRootScroll(true);
-    });
+    this.#dialog.close();
+    this.#toggleRootScroll(true);
   }
   #overlayClick(e) {
     if (!this.overlayClickable) return;
