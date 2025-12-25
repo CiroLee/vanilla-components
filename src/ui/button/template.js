@@ -20,6 +20,10 @@ template.innerHTML = /* html */ `
     button[data-color="success"] {
       --color: var(--success-color);
     }
+    button[data-color="secondary"] {
+      --color: var(--secondary-color);
+      color: var(--black-color);
+    }
     button[data-size="sm"] {
       height: 28px;
       font-size: 12px;
@@ -71,9 +75,6 @@ template.innerHTML = /* html */ `
         cursor: not-allowed;
         background-color: color-mix(in oklch, var(--color) 65%, white 35%);
       }
-      &:not(:disabled):hover {
-        background-color: color-mix(in oklch, var(--color) 90%, black 10%);
-      }
       &:not(:disabled,[data-loading]):active {
         scale: 0.98;
       }
@@ -84,9 +85,7 @@ template.innerHTML = /* html */ `
       &:where([data-variant="outline"],[data-variant="ghost"]) {
         background-color: transparent;
         color: var(--color);
-        &:not(:disabled):hover {
-          background-color: color-mix(in oklch, var(--color) 15%, transparent 75%);
-        }
+
         &:disabled {
           background-color: transparent;
           color: color-mix(in oklch, var(--color) 65%, white 35%);
@@ -95,9 +94,6 @@ template.innerHTML = /* html */ `
       }
       &[data-variant="outline"] {
         border: 1px solid color-mix(in oklch, var(--color) 60%, white 40%);
-        &:not(:disabled):hover {
-          background-color: color-mix(in oklch, var(--color) 16%, white 0%);
-        }
       }
     }
   </style>

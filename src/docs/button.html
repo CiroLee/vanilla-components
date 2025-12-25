@@ -6,7 +6,6 @@
     <link rel="icon" href="../favicon.ico" />
     <link rel="stylesheet" href="styles/global.css" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <script src="https://cdn.jsdelivr.net/npm/iconify-icon@3.0.0/dist/iconify-icon.min.js" defer></script>
     <title>vanilla-components | button</title>
   </head>
   <body>
@@ -21,6 +20,7 @@
             <div slot="preview">
               <div class="flex items-center gap-2">
                 <va-button color="primary">Primary</va-button>
+                <va-button color="secondary">Secondary</va-button>
                 <va-button color="success">Success</va-button>
                 <va-button color="warning">Warning</va-button>
                 <va-button color="danger">Danger</va-button>
@@ -76,13 +76,13 @@
             <div slot="preview">
               <div class="flex items-center gap-2">
                 <va-button as-icon>
-                  <iconify-icon icon="lucide:home" width="18" noobserver></iconify-icon>
+                  <va-icon prefix="lucide" name="home" size="18"></va-icon>
                 </va-button>
                 <va-button as-icon variant="outline">
-                  <iconify-icon icon="lucide:home" width="18" noobserver></iconify-icon>
+                  <va-icon prefix="lucide" name="home" size="18"></va-icon>
                 </va-button>
                 <va-button as-icon variant="ghost">
-                  <iconify-icon icon="lucide:home" width="18" noobserver></iconify-icon>
+                  <va-icon prefix="lucide" name="home" size="18"></va-icon>
                 </va-button>
               </div>
             </div>
@@ -240,6 +240,7 @@
     import '../ui/button/index.js';
     import '../ui//theme-provider/index.js';
     import '../ui/tag/index.js';
+    import '../ui/icon/index.js';
     import './components/syntax-highlight.js';
     import './components/preview-code-switcher.js';
     import './components/syntax-highlight.js';

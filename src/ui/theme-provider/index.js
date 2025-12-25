@@ -10,6 +10,7 @@ class VaThemeProvider extends HTMLElement {
         :host {
           --black-color: #181818;
           --primary-color: #0D65F2;
+          --secondary-color: #dedede;
           --warning-color: #FFAB1A;
           --success-color: #10CC4B;
           --danger-color: #F03D4F;
