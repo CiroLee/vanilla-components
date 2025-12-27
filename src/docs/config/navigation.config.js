@@ -39,4 +39,9 @@ export const navigationConfig = [
     label: 'Loading',
     path: './loading.html',
   },
+  {
+    id: 'va-input',
+    label: 'Input',
+    path: './input.html',
+  },
 ];

@@ -47,7 +47,7 @@ template.innerHTML = /* html */ `
       border: 1px solid var(--border-color);
       overflow: auto;
       max-height: 480px;
-      padding: 8px;
+      padding: 10px 8px;
       &:has(slot[name="code"].active) {
         background: #0d1117;
       }

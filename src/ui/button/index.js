@@ -15,10 +15,10 @@ class VaButton extends HTMLElement {
 
   connectedCallback() {
     this.#updateType();
-    this.#addEventListeners();
+    this.#addClickListener();
   }
   disconnectedCallback() {
-    this.#removeEventListeners();
+    this.#removeClickListener();
   }
   static get observedAttributes() {
     return ['disabled', 'block', 'color', 'variant', 'size', 'rounded', 'loading', 'type', 'as-icon'];
@@ -51,7 +51,7 @@ class VaButton extends HTMLElement {
         break;
     }
   }
-  #addEventListeners() {
+  #addClickListener() {
     this.#handleClick = (e) => {
       if (!this.disabled && !this.hasAttribute('loading')) {
         this.dispatchEvent(
@@ -69,7 +69,7 @@ class VaButton extends HTMLElement {
 
     this.#button.addEventListener('click', this.#handleClick);
   }
-  #removeEventListeners() {
+  #removeClickListener() {
     if (this.#button && this.#handleClick) {
       this.#button.removeEventListener('click', this.#handleClick);
     }
@@ -114,7 +114,7 @@ class VaButton extends HTMLElement {
    * @description 通过实例设置按钮大小
    * @param {'sm' | 'md' | 'lg'} size
    * @example
-   * document.getElementById('va-button').size = 'large';
+   * document.getElementById('va-button').size = 'lg';
    */
   set size(size) {
     this.setAttribute('size', size);

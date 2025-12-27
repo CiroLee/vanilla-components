@@ -34,7 +34,7 @@ template.innerHTML = /* html */ `
       height: var(--height);
       display: inline-block;
       border-radius: calc(infinity * 1px);
-      background-color: var(--inactive-bg-color);
+      background-color: var(--inactive-color);
       overflow: hidden;
       position: relative;
       box-sizing: border-box;
@@ -85,7 +85,7 @@ template.innerHTML = /* html */ `
       }
     }
     .switch-button:has(input:disabled) {
-      background-color: var(--disabled-bg-color);
+      background-color: var(--disabled-color);
       & + label {
         cursor: not-allowed;
         color: var(--secondary-text-color);
