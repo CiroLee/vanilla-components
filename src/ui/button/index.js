@@ -1,5 +1,4 @@
 import template from './template.js';
-
 class VaButton extends HTMLElement {
   #button;
   #handleClick;
@@ -14,7 +13,6 @@ class VaButton extends HTMLElement {
   }
 
   connectedCallback() {
-    this.#updateType();
     this.#addClickListener();
   }
   disconnectedCallback() {
@@ -49,13 +47,16 @@ class VaButton extends HTMLElement {
       case 'as-icon':
         this.#updateAsIcon();
         break;
+      case 'type':
+        this.#updateType(newValue);
+        break;
     }
   }
   #addClickListener() {
     this.#handleClick = (e) => {
       if (!this.disabled && !this.hasAttribute('loading')) {
         this.dispatchEvent(
-          new CustomEvent('va-button-click', {
+          new CustomEvent('onClick', {
             bubbles: true,
             composed: true,
             detail: {

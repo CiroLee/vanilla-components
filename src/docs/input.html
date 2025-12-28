@@ -18,7 +18,7 @@
           <h4 id="default" class="mb-2">Default</h4>
           <preview-code-switcher>
             <div slot="preview">
-              <va-input name="userName" class="w-80" placeholder="userName" />
+              <va-input name="default-input" class="w-80" placeholder="default input" />
             </div>
             <div slot="code">
               <syntax-highlight id="input-default-code" language="html" />
@@ -132,9 +132,6 @@
     import './components/syntax-highlight.js';
     import './components/side-nav.js';
     import './components/on-this-page.js';
-
-    // const userNameInput = document.querySelector('va-input[name="userName"]');
-    // userNameInput.readonly = true;
 
     const inputDefaultCode = document.getElementById('input-default-code');
     const inputSizeCode = document.getElementById('input-size-code');

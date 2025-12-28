@@ -1,4 +1,4 @@
-export const defaultCode = `<va-input name="userName" placeholder="userName" />`;
+export const defaultCode = `<va-input name="default-input" placeholder="default input" />`;
 
 export const sizeCode = `<va-input name="small" placeholder="small" size="sm"></va-input>
 <va-input name="medium" placeholder="medium" size="md"></va-input>

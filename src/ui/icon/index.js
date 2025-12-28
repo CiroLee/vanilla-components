@@ -46,7 +46,6 @@ class VaIcon extends HTMLElement {
     return numericReg.test(size) ? `${size}px` : size;
   }
   async #render(prefix, name) {
-    console.log(prefix, name);
     const res = await fetch(`https://api.iconify.design/${prefix}/${name}.svg`);
     const svg = await res.text();
     const size = this.#size || '1em';
