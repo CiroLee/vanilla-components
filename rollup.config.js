@@ -15,48 +15,62 @@ const banner = `/**
  * @repository ${repository}
  * @date ${date}
  */`;
-// plugin - 删除style的注释
-function removeStyleComments() {
-  return {
-    name: 'remove-style-comments',
-    generateBundle(_, bundle) {
-      for (const file of Object.values(bundle)) {
-        if (file.type === 'chunk') {
-          file.code = file.code.replace(/<style[^>]*>[\s\S]*?<\/style>/g, (styleBlock) => styleBlock.replace(/\/\*[\s\S]*?\*\//g, ''));
-        }
-      }
-    },
-  };
-}
-// plugin - 移除无用的空白字符，包括换行符、空格等
-function removeEmpties() {
-  return {
-    name: 'remove-empties',
-    renderChunk(code) {
-      // 只进行最安全的空白字符移除操作
-      let optimizedCode = code
-        // 移除行尾的空白字符
-        .replace(/[ \t]+$/gm, '')
-        // 移除行首的多个空格（保持缩进一致）
-        .replace(/^\s+/gm, (match) => match.length >= 2 ? ' ' : match)
-        // 将多个连续的换行符减少为两个
-        .replace(/\n{3,}/g, '\n\n')
-        // 将多个连续的空格（不在字符串或注释内）替换为单个空格
-        .replace(/ {2,}/g, ' ');
 
-      return {
-        code: optimizedCode,
-      };
+// plugin - 压缩模板字符串中的 HTML/CSS 内容
+function minifyTemplates() {
+  return {
+    name: 'minify-templates',
+    renderChunk(code) {
+      // 匹配模板字符串（处理嵌套和转义）
+      const templateRegex = /`([^`\\]|\\.)*`/g;
+
+      const optimizedCode = code.replace(templateRegex, (template) => {
+        // 保留模板字符串的反引号
+        const content = template.slice(1, -1);
+
+        const minified = content
+          // 移除 HTML 注释
+          .replace(/<!--[\s\S]*?-->/g, '')
+          // 移除 CSS 注释（但保留 /*html*/ 这类标记前的内容已经处理）
+          .replace(/\/\*(?!html|css)[\s\S]*?\*\//g, '')
+          // 压缩标签之间的空白（> 和 < 之间）
+          .replace(/>\s+</g, '><')
+          // 移除行首空白
+          .replace(/^\s+/gm, '')
+          // 移除行尾空白
+          .replace(/\s+$/gm, '')
+          // 将多个空白字符压缩为单个空格（但保留单个换行以维持可读性）
+          .replace(/[ \t]+/g, ' ')
+          // 移除多余换行
+          .replace(/\n+/g, '')
+          // CSS: 移除 { 前后的空格
+          .replace(/\s*{\s*/g, '{')
+          // CSS: 移除 } 前后的空格
+          .replace(/\s*}\s*/g, '}')
+          // CSS: 移除 : 后的空格
+          .replace(/:\s+/g, ':')
+          // CSS: 移除 ; 后的空格
+          .replace(/;\s*/g, ';')
+          // CSS: 移除 , 后的空格
+          .replace(/,\s+/g, ',')
+          // 清理可能产生的多余空格
+          .replace(/ +/g, ' ')
+          .trim();
+
+        return '`' + minified + '`';
+      });
+
+      return { code: optimizedCode };
     },
   };
 }
 const commonPlugins = [
-  removeStyleComments(),
-  removeEmpties(), // 移除空格和换行符
+  minifyTemplates(), // 压缩模板字符串中的 HTML/CSS
   resolve(),
   terser({
     format: {
-      comments: false, // 删除注释
+      // 保留包含 @license 的 banner 注释
+      comments: (_, comment) => /@license/i.test(comment.value),
     },
   }),
 ];
