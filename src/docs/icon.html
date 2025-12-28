@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="styles/global.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>vanilla-components | icon</title>
+  </head>
+  <body>
+    <va-theme-provider>
+      <nav-header></nav-header>
+      <section class="main-container">
+        <side-nav active="va-icon"></side-nav>
+        <section class="mt-18">
+          <h2 class="mb-3">Icon</h2>
+          <h4 id="default" class="mb-2">Default</h4>
+          <preview-code-switcher>
+            <div slot="preview" class="flex gap-3">
+              <va-icon prefix="lucide" name="brush" size="24"></va-icon>
+              <va-icon prefix="lucide" name="bean" size="24"></va-icon>
+              <va-icon prefix="lucide" name="cup-soda" size="24"></va-icon>
+              <va-icon prefix="lucide" name="badge-percent" size="24"></va-icon>
+            </div>
+            <div slot="code">
+              <syntax-highlight id="icon-default-code" language="html" />
+            </div>
+          </preview-code-switcher>
+          <h4 id="color" class="mb-2">Color</h4>
+          <preview-code-switcher>
+            <div slot="preview" class="flex gap-3">
+              <va-icon prefix="lucide" name="brush" size="24" color="brown"></va-icon>
+              <va-icon prefix="lucide" name="bean" size="24" color="#24d024"></va-icon>
+              <va-icon prefix="lucide" name="cup-soda" size="24" color="rgb(215 174 17)"></va-icon>
+              <va-icon prefix="lucide" name="badge-percent" size="24" color="hsl(222deg 77% 53%)"></va-icon>
+            </div>
+            <div slot="code">
+              <syntax-highlight id="icon-color-code" language="html" />
+            </div>
+          </preview-code-switcher>
+          <h4 id="api" class="mt-8 mb-2">API</h4>
+          <div class="custom-table">
+            <table>
+              <thead>
+                <tr>
+                  <th class="min-w-25">html属性</th>
+                  <th class="min-w-25">js属性</th>
+                  <th>类型</th>
+                  <th>说明</th>
+                  <th class="min-w-20">必填</th>
+                  <th>默认值</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>prefix</td>
+                  <td>prefix</td>
+                  <td class="text-(--primary-color)">string</td>
+                  <td>icon集合名(如: lucide)</td>
+                  <td>是</td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <td>name</td>
+                  <td>name</td>
+                  <td class="text-(--primary-color)">string</td>
+                  <td>icon名称(如: home)</td>
+                  <td>是</td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <td>size</td>
+                  <td>size</td>
+                  <td class="enum-tags"><va-tag size="sm">number</va-tag> | <va-tag size="sm">string</va-tag></td>
+                  <td>icon尺寸，支持number，string类型</td>
+                  <td>否</td>
+                  <td class="text-(--primary-color)">1em</td>
+                </tr>
+                <tr>
+                  <td>color</td>
+                  <td>color</td>
+                  <td class="text-(--primary-color)">string</td>
+                  <td>icon颜色</td>
+                  <td>否</td>
+                  <td class="text-(--primary-color)">currentColor</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+        <on-this-page></on-this-page>
+      </section>
+    </va-theme-provider>
+  </body>
+  <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.11.1/build/highlight.min.js"></script>
+  <script type="module">
+    import { defaultCode, colorCode } from './codes/icon.js';
+    import './components/nav-header.js';
+    import '../ui/action/index.js';
+    import '../ui//theme-provider/index.js';
+    import '../ui/icon/index.js';
+    import '../ui/tag/index.js';
+    import './components/syntax-highlight.js';
+    import './components/preview-code-switcher.js';
+    import './components/syntax-highlight.js';
+    import './components/side-nav.js';
+    import './components/on-this-page.js';
+
+    const iconDefaultCode = document.getElementById('icon-default-code');
+    const iconColorCode = document.getElementById('icon-color-code');
+    iconDefaultCode.code = defaultCode;
+    iconColorCode.code = colorCode;
+  </script>
+</html>

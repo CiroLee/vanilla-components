@@ -28,8 +28,31 @@ function removeStyleComments() {
     },
   };
 }
+// plugin - 移除无用的空白字符，包括换行符、空格等
+function removeEmpties() {
+  return {
+    name: 'remove-empties',
+    renderChunk(code) {
+      // 只进行最安全的空白字符移除操作
+      let optimizedCode = code
+        // 移除行尾的空白字符
+        .replace(/[ \t]+$/gm, '')
+        // 移除行首的多个空格（保持缩进一致）
+        .replace(/^\s+/gm, (match) => match.length >= 2 ? ' ' : match)
+        // 将多个连续的换行符减少为两个
+        .replace(/\n{3,}/g, '\n\n')
+        // 将多个连续的空格（不在字符串或注释内）替换为单个空格
+        .replace(/ {2,}/g, ' ');
+
+      return {
+        code: optimizedCode,
+      };
+    },
+  };
+}
 const commonPlugins = [
   removeStyleComments(),
+  removeEmpties(), // 移除空格和换行符
   resolve(),
   terser({
     format: {

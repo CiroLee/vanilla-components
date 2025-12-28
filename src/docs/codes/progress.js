@@ -13,7 +13,7 @@ export const dynamicHtmlCode = `<!--- html --->
   <va-progress class="w-80" id="dynamic-progress"></va-progress>
   <span class="text-sm" id="progress-value">0%</span>
 </div>
-<va-button id="start-progress-btn">start</va-button>
+<va-action id="start-progress-btn">start</va-action>
 </div>`;
 
 export const dynamicJsCode = `// javascript
@@ -22,7 +22,7 @@ const startProgressBtn = document.getElementById('start-progress-btn');
 const progressValue = document.getElementById('progress-value');
 
 let timer;
-startProgressBtn.addEventListener('va-button-click', function() {
+startProgressBtn.addEventListener('va-action-click', function() {
   if (timer) {
     clearInterval(timer);
   }

@@ -8,7 +8,7 @@ template.innerHTML = /* html */ `
       position: relative;
       height: 8px;
       border-radius: calc(infinity * 1px);
-      background-color: var(--inactive-bg-color);
+      background-color: var(--inactive-color);
       overflow: hidden;
     }
     .progress[data-size="sm"] {

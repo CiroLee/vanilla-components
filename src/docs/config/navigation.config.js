@@ -5,9 +5,14 @@ export const navigationConfig = [
     path: './installation.html',
   },
   {
-    id: 'va-button',
-    label: 'Button',
-    path: './button.html',
+    id: 'va-icon',
+    label: 'Icon',
+    path: './icon.html',
+  },
+  {
+    id: 'va-action',
+    label: 'Action',
+    path: './action.html',
   },
   {
     id: 'va-modal',
@@ -28,10 +33,5 @@ export const navigationConfig = [
     id: 'va-progress',
     label: 'Progress',
     path: './progress.html',
-  },
-  {
-    id: 'va-loading',
-    label: 'Loading',
-    path: './loading.html',
   },
 ];

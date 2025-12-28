@@ -1,4 +1,5 @@
 const template = document.createElement('template');
+
 template.innerHTML = /* html */ `
   <style>
     dialog {
@@ -9,14 +10,41 @@ template.innerHTML = /* html */ `
       box-shadow: 0 6px 14px -4px rgb(0 0 0 / 30%);
       border-radius: 6px;
       position: fixed;
-      &::backdrop {
-        background-color: rgb(0 0 0 / 40%);
-      }
+      opacity: 0;
+      translate: 0 20px;
+      transition-property: translate, opacity, overlay, display;
+      transition-behavior: allow-discrete;
+      transition-timing-function: ease-in-out;
+      transition-duration: 150ms;
       &[data-overlay="blur"]::backdrop {
         backdrop-filter: blur(4px);
       }
       @media (max-width: 640px) {
         width: 82%;
+      }
+    }
+    dialog::backdrop {
+      background-color: rgb(0 0 0 / 40%);
+      opacity: 0;
+      transition: opacity 150ms ease-in-out allow-discrete;
+    }
+    dialog[open] {
+      translate: 0 0;
+      opacity: 1;
+    }
+    dialog[open]::backdrop {
+      opacity: 1;
+
+    }
+    @starting-style {
+      dialog[open] {
+        opacity: 0;
+      translate: 0 20px;
+      }
+    }
+    @starting-style {
+      dialog[open]::backdrop {
+        opacity: 0;
       }
     }
     .modal-close {

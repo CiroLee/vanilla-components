@@ -20,13 +20,17 @@ template.innerHTML = /* html */ `
     button[data-color="success"] {
       --color: var(--success-color);
     }
+    button[data-color="secondary"] {
+      --color: var(--secondary-color);
+      color: var(--black-color);
+    }
     button[data-size="sm"] {
-      height: 24px;
+      height: 28px;
       font-size: 12px;
       padding: 0 10px;
     }
     button[data-size="lg"] {
-      height: 40px;
+      height: 44px;
       font-size: 16px;
     }
     button[data-rounded="sm"] {
@@ -58,7 +62,7 @@ template.innerHTML = /* html */ `
       color: white;
       font-size: 14px;
       padding: 0 16px;
-      height: 32px;
+      height: 36px;
       border-radius: 6px;
       transition-property: background-color,scale;
       transition-duration: 0.2s;
@@ -71,9 +75,6 @@ template.innerHTML = /* html */ `
         cursor: not-allowed;
         background-color: color-mix(in oklch, var(--color) 65%, white 35%);
       }
-      &:not(:disabled):hover {
-        background-color: color-mix(in oklch, var(--color) 90%, black 10%);
-      }
       &:not(:disabled,[data-loading]):active {
         scale: 0.98;
       }
@@ -84,9 +85,7 @@ template.innerHTML = /* html */ `
       &:where([data-variant="outline"],[data-variant="ghost"]) {
         background-color: transparent;
         color: var(--color);
-        &:not(:disabled):hover {
-          background-color: color-mix(in oklch, var(--color) 15%, transparent 75%);
-        }
+
         &:disabled {
           background-color: transparent;
           color: color-mix(in oklch, var(--color) 65%, white 35%);
@@ -95,13 +94,10 @@ template.innerHTML = /* html */ `
       }
       &[data-variant="outline"] {
         border: 1px solid color-mix(in oklch, var(--color) 60%, white 40%);
-        &:not(:disabled):hover {
-          background-color: color-mix(in oklch, var(--color) 16%, white 0%);
-        }
       }
     }
   </style>
-  <button part="button"><slot></slot></button>
+  <button part="action"><slot></slot></button>
 `;
 
 export default template;

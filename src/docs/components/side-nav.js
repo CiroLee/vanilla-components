@@ -20,7 +20,9 @@ class SideNav extends HTMLElement {
     }
   }
   #render() {
-    const list = navigationConfig.map((item) => `<a href="${item.path}" id="${item.id}" class="nav-link">${item.label}</a>`).join('');
+    const list = [navigationConfig.find((item) => item.id === 'installation'), ...navigationConfig.filter((nav) => nav.id !== 'installation').sort((a, b) => a.label.localeCompare(b.label))]
+      .map((item) => `<a href="${item.path}" id="${item.id}" class="nav-link">${item.label}</a>`)
+      .join('');
     this.shadowRoot.innerHTML = /* html */ `
       <style>
         .side-nav {

@@ -17,7 +17,7 @@
           <h4 id="Default" class="mb-2">Default</h4>
           <preview-code-switcher>
             <div slot="preview">
-              <va-button id="open-modal-1">open modal</va-button>
+              <va-action id="open-modal-1">open modal</va-action>
             </div>
             <div slot="code">
               <syntax-highlight id="modal-default-code" language="html"></syntax-highlight>
@@ -29,7 +29,7 @@
           <h4 id="Blur-overlay" class="mb-2 mt-3">Blur overlay</h4>
           <preview-code-switcher>
             <div slot="preview">
-              <va-button id="open-modal-2">open modal</va-button>
+              <va-action id="open-modal-2">open modal</va-action>
             </div>
             <div slot="code">
               <syntax-highlight id="modal-overlay-code" language="html"></syntax-highlight>
@@ -38,7 +38,7 @@
           <h4 id="OverlayClickable" class="mb-2 mt-3">OverlayClickable</h4>
           <preview-code-switcher>
             <div slot="preview">
-              <va-button id="open-modal-3">open modal</va-button>
+              <va-action id="open-modal-3">open modal</va-action>
             </div>
             <div slot="code">
               <syntax-highlight id="modal-overlay-clickable-code" language="html"></syntax-highlight>
@@ -98,12 +98,12 @@
               <tbody>
                 <tr>
                   <td>open</td>
-                  <td class="text-(--primary-color)">() => void</td>
+                  <td class="text-(--primary-color)"><code>() => void</code></td>
                   <td>打开模态窗</td>
                 </tr>
                 <tr>
                   <td>close</td>
-                  <td class="text-(--primary-color)">() => void</td>
+                  <td class="text-(--primary-color)"><code>() => void</code></td>
                   <td>关闭模态窗</td>
                 </tr>
               </tbody>
@@ -117,8 +117,8 @@
         <p slot="description">这是一段描述</p>
         <div slot="content">this is modal content...</div>
         <div slot="footer">
-          <va-button id="cancel" variant="ghost">取消</va-button>
-          <va-button id="confirm" color="primary">确定</va-button>
+          <va-action id="cancel" variant="ghost">取消</va-action>
+          <va-action id="confirm" color="primary">确定</va-action>
         </div>
       </va-modal>
       <va-modal id="modal-2" overlay="blur">
@@ -140,7 +140,7 @@
     import './components/preview-code-switcher.js';
     import '../ui/theme-provider/index.js';
     import '../ui/modal/index.js';
-    import '../ui/button/index.js';
+    import '../ui/action/index.js';
     import '../ui/tag/index.js';
     import './components/side-nav.js';
     import './components/on-this-page.js';
@@ -158,7 +158,7 @@
     document.getElementById('open-modal-1').addEventListener('click', () => {
       document.getElementById('modal-1').show = true;
     });
-    document.querySelectorAll('#modal-1 va-button').forEach((el) => {
+    document.querySelectorAll('#modal-1 va-action').forEach((el) => {
       el.addEventListener('click', () => {
         document.getElementById('modal-1').show = false;
       });

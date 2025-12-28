@@ -25,7 +25,7 @@ vanilla-components 是一个使用原生 javascript 构建的基于 Web 组件�
 ```html
 <body>
   <va-theme-provider>
-    <va-button>Button</va-button>
+    <va-action>Button</va-action>
   </va-theme-provider>
 </body>
 ```
