@@ -4,13 +4,13 @@ export const defaultModalCodeHtml = `<!--- html -->
   <p slot="description">这是一段描述</p>
   <div slot="content">this is modal content...</div>
   <div slot="footer">
-    <va-button id="cancel" variant="ghost">取消</va-button>
-    <va-button id="confirm" color="primary">确定</va-button>
+    <va-action id="cancel" variant="ghost">取消</va-action>
+    <va-action id="confirm" color="primary">确定</va-action>
   </div>
 </va-modal>`;
 
 export const defaultModalCodeJs = `// js
-document.querySelectorAll('#modal va-button').forEach(function(el) {
+document.querySelectorAll('#modal va-action').forEach(function(el) {
   el.addEventListener('click', function() {
     document.getElementById('modal').show = false;
     // 也可使用close方法关闭

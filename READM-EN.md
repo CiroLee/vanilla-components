@@ -25,7 +25,7 @@ the you must use `va-theme-provider` as the root element, it just provide theme 
 ```html
 <body>
   <va-theme-provider>
-    <va-button>Button</va-button>
+    <va-action>Button</va-action>
   </va-theme-provider>
 </body>
 ```

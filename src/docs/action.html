@@ -6,24 +6,25 @@
     <link rel="icon" href="../favicon.ico" />
     <link rel="stylesheet" href="styles/global.css" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <title>vanilla-components | button</title>
+    <title>vanilla-components | action</title>
   </head>
   <body>
     <va-theme-provider>
       <nav-header></nav-header>
       <section class="main-container">
-        <side-nav active="va-button"></side-nav>
+        <side-nav active="va-action"></side-nav>
         <section class="mt-18">
-          <h2 class="mb-3">Button</h2>
+          <h2>Action</h2>
+          <p class="mb-3 text-(--secondary-text-color) text-sm">va-action以button是为基础的<strong class="text-(--primary-color)">行为触发</strong>组件，如果用于表单行为，请使用原生button标签。</p>
           <h4 id="color" class="mb-2">Color</h4>
           <preview-code-switcher>
             <div slot="preview">
               <div class="flex items-center gap-2">
-                <va-button color="primary">Primary</va-button>
-                <va-button color="secondary">Secondary</va-button>
-                <va-button color="success">Success</va-button>
-                <va-button color="warning">Warning</va-button>
-                <va-button color="danger">Danger</va-button>
+                <va-action color="primary">Primary</va-action>
+                <va-action color="secondary">Secondary</va-action>
+                <va-action color="success">Success</va-action>
+                <va-action color="warning">Warning</va-action>
+                <va-action color="danger">Danger</va-action>
               </div>
             </div>
             <div slot="code">
@@ -34,9 +35,9 @@
           <preview-code-switcher>
             <div slot="preview">
               <div class="flex items-center gap-2">
-                <va-button>Solid</va-button>
-                <va-button variant="outline">Outline</va-button>
-                <va-button variant="ghost">Ghost</va-button>
+                <va-action>Solid</va-action>
+                <va-action variant="outline">Outline</va-action>
+                <va-action variant="ghost">Ghost</va-action>
               </div>
             </div>
             <div slot="code">
@@ -47,9 +48,9 @@
           <preview-code-switcher>
             <div slot="preview">
               <div class="flex items-center gap-2">
-                <va-button size="sm">Small</va-button>
-                <va-button size="md">Medium</va-button>
-                <va-button size="lg">Large</va-button>
+                <va-action size="sm">Small</va-action>
+                <va-action size="md">Medium</va-action>
+                <va-action size="lg">Large</va-action>
               </div>
             </div>
             <div slot="code">
@@ -60,11 +61,11 @@
           <preview-code-switcher>
             <div slot="preview">
               <div class="flex items-center gap-2">
-                <va-button rounded="full">Full Rounded</va-button>
-                <va-button rounded="sm">Small</va-button>
-                <va-button rounded="md">Medium</va-button>
-                <va-button rounded="lg">Large</va-button>
-                <va-button rounded="none">None</va-button>
+                <va-action rounded="full">Full Rounded</va-action>
+                <va-action rounded="sm">Small</va-action>
+                <va-action rounded="md">Medium</va-action>
+                <va-action rounded="lg">Large</va-action>
+                <va-action rounded="none">None</va-action>
               </div>
             </div>
             <div slot="code">
@@ -75,15 +76,15 @@
           <preview-code-switcher>
             <div slot="preview">
               <div class="flex items-center gap-2">
-                <va-button as-icon>
+                <va-action as-icon>
                   <va-icon prefix="lucide" name="home" size="18"></va-icon>
-                </va-button>
-                <va-button as-icon variant="outline">
+                </va-action>
+                <va-action as-icon variant="outline">
                   <va-icon prefix="lucide" name="home" size="18"></va-icon>
-                </va-button>
-                <va-button as-icon variant="ghost">
+                </va-action>
+                <va-action as-icon variant="ghost">
                   <va-icon prefix="lucide" name="home" size="18"></va-icon>
-                </va-button>
+                </va-action>
               </div>
             </div>
             <div slot="code">
@@ -93,10 +94,10 @@
           <h4 id="loading" class="mb-2 mt-3">Loading</h4>
           <preview-code-switcher>
             <div slot="preview">
-              <va-button loading>
+              <va-action loading>
                 <iconify-icon icon="svg-spinners:90-ring" width="18" noobserver></iconify-icon>
                 Loading...
-              </va-button>
+              </va-action>
             </div>
             <div slot="code">
               <syntax-highlight id="btn-loading-code" language="html"></syntax-highlight>
@@ -106,11 +107,11 @@
           <preview-code-switcher>
             <div slot="preview">
               <div class="flex items-center gap-2">
-                <va-button disabled>Primary</va-button>
-                <va-button disabled color="warning">Warning</va-button>
-                <va-button disabled color="danger">Danger</va-button>
-                <va-button disabled variant="outline">Outline</va-button>
-                <va-button disabled variant="ghost">Ghost</va-button>
+                <va-action disabled>Primary</va-action>
+                <va-action disabled color="warning">Warning</va-action>
+                <va-action disabled color="danger">Danger</va-action>
+                <va-action disabled variant="outline">Outline</va-action>
+                <va-action disabled variant="ghost">Ghost</va-action>
               </div>
             </div>
             <div slot="code">
@@ -120,10 +121,10 @@
           <h4 id="block" class="mb-2 mt-3">Block</h4>
           <preview-code-switcher>
             <div slot="preview">
-              <va-button block>Block</va-button>
+              <va-action block>Block</va-action>
             </div>
             <div slot="code">
-              <syntax-highlight id="btn-block-code" language="html"><va-button block>Block</va-button></syntax-highlight>
+              <syntax-highlight id="btn-block-code" language="html"><va-action block>Block</va-action></syntax-highlight>
             </div>
           </preview-code-switcher>
           <h4 id="api" class="mt-8 mb-2">API</h4>
@@ -222,7 +223,7 @@
               <tbody>
                 <tr>
                   <td>onClick</td>
-                  <td class="text-(--primary-color)"><code>(e: {detail: { source:'va-button', originalEvent: Event }}) => void</code></td>
+                  <td class="text-(--primary-color)"><code>(e: {detail: { source:'va-action', originalEvent: Event }}) => void</code></td>
                   <td>自定义点击事件</td>
                 </tr>
               </tbody>
@@ -235,9 +236,9 @@
   </body>
   <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.11.1/build/highlight.min.js"></script>
   <script type="module">
-    import { colorCode, variantCode, roundedCode, sizeCode, disabledCode, asIconCode, loadingCode } from './codes/button.js';
+    import { colorCode, variantCode, roundedCode, sizeCode, disabledCode, asIconCode, loadingCode } from './codes/action.js';
     import './components/nav-header.js';
-    import '../ui/button/index.js';
+    import '../ui/action/index.js';
     import '../ui//theme-provider/index.js';
     import '../ui/tag/index.js';
     import '../ui/icon/index.js';

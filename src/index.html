@@ -18,11 +18,11 @@
           构建。因此，您无需任何构建工具，即可直接下载使用。
         </p>
         <a href="./docs/installation.html" class="mt-8">
-          <va-button class="w-32" size="lg">开始使用</va-button>
+          <va-action class="w-32" size="lg">开始使用</va-action>
         </a>
         <div class="grid w-full lg:max-w-4xl xl:max-w-6xl mx-auto gap-x-3 gap-y-5 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-12">
-          <show-card href="./docs/button.html" name="Button">
-            <va-button class="[&::part(button)]:pointer-events-none">Button</va-button>
+          <show-card href="./docs/Action.html" name="Action">
+            <va-action class="[&::part(action)]:pointer-events-none">Action</va-action>
           </show-card>
           <show-card href="./docs/modal.html" name="Modal">
             <div class="w-[60%] h-[60%] rounded-md border border-(--border-color) bg-white p-4 relative">
@@ -49,9 +49,6 @@
           <show-card href="./docs/icon.html" name="Icon">
             <va-icon prefix="lucide" name="award" size="32" color="#0D65F2" />
           </show-card>
-          <show-card href="./docs/input.html" name="Input">
-            <va-input name="input" value="input..." class="pointer-events-none" />
-          </show-card>
         </div>
       </section>
     </va-theme-provider>
@@ -59,13 +56,12 @@
   <script type="module">
     import './ui/theme-provider/index.js';
     import './docs/components/nav-header.js';
-    import './ui/button/index.js';
+    import './ui/action/index.js';
     import './ui/modal/index.js';
     import './ui/tag/index.js';
     import './ui/switch/index.js';
     import './ui/progress/index.js';
     import './ui/icon/index.js';
-    import './ui/input/index.js';
     import './docs/components/show-card.js';
   </script>
 </html>

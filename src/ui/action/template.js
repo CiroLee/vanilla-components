@@ -97,7 +97,7 @@ template.innerHTML = /* html */ `
       }
     }
   </style>
-  <button part="button"><slot></slot></button>
+  <button part="action"><slot></slot></button>
 `;
 
 export default template;

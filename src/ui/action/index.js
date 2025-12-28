@@ -1,15 +1,15 @@
 import template from './template.js';
-class VaButton extends HTMLElement {
-  #button;
+class VaAction extends HTMLElement {
+  #action;
   #handleClick;
   static {
-    customElements.define('va-button', this);
+    customElements.define('va-action', this);
   }
   constructor() {
     super();
     this.attachShadow({ mode: 'open' });
     this.shadowRoot.appendChild(template.content.cloneNode(true));
-    this.#button = this.shadowRoot.querySelector('button');
+    this.#action = this.shadowRoot.querySelector('button');
   }
 
   connectedCallback() {
@@ -19,7 +19,7 @@ class VaButton extends HTMLElement {
     this.#removeClickListener();
   }
   static get observedAttributes() {
-    return ['disabled', 'block', 'color', 'variant', 'size', 'rounded', 'loading', 'type', 'as-icon'];
+    return ['disabled', 'block', 'color', 'variant', 'size', 'rounded', 'loading', 'as-icon'];
   }
   attributeChangedCallback(name, oldValue, newValue) {
     switch (name) {
@@ -47,9 +47,6 @@ class VaButton extends HTMLElement {
       case 'as-icon':
         this.#updateAsIcon();
         break;
-      case 'type':
-        this.#updateType(newValue);
-        break;
     }
   }
   #addClickListener() {
@@ -60,7 +57,7 @@ class VaButton extends HTMLElement {
             bubbles: true,
             composed: true,
             detail: {
-              source: 'va-button',
+              source: 'va-action',
               originalEvent: e,
             },
           }),
@@ -68,15 +65,15 @@ class VaButton extends HTMLElement {
       }
     };
 
-    this.#button.addEventListener('click', this.#handleClick);
+    this.#action.addEventListener('click', this.#handleClick);
   }
   #removeClickListener() {
-    if (this.#button && this.#handleClick) {
-      this.#button.removeEventListener('click', this.#handleClick);
+    if (this.#action && this.#handleClick) {
+      this.#action.removeEventListener('click', this.#handleClick);
     }
   }
   get disabled() {
-    return this.#button.disabled;
+    return this.#action.disabled;
   }
   set disabled(value) {
     value ? this.setAttribute('disabled', '') : this.removeAttribute('disabled');
@@ -97,7 +94,7 @@ class VaButton extends HTMLElement {
    * @description 通过实例设置按钮变体
    * @param {'solid' | 'outline'} variant
    * @example
-   * document.getElementById('va-button').variant = 'outline';
+   * document.getElementById('va-action').variant = 'outline';
    */
   set variant(variant) {
     this.setAttribute('variant', variant);
@@ -106,7 +103,7 @@ class VaButton extends HTMLElement {
    * @description 通过实例设置按钮颜色
    * @param {'primary' | 'success' | 'warning' | 'danger'} color
    * @example
-   * document.getElementById('va-button').color = 'success';
+   * document.getElementById('va-action').color = 'success';
    */
   set color(color) {
     this.setAttribute('color', color);
@@ -115,7 +112,7 @@ class VaButton extends HTMLElement {
    * @description 通过实例设置按钮大小
    * @param {'sm' | 'md' | 'lg'} size
    * @example
-   * document.getElementById('va-button').size = 'lg';
+   * document.getElementById('va-action').size = 'lg';
    */
   set size(size) {
     this.setAttribute('size', size);
@@ -124,7 +121,7 @@ class VaButton extends HTMLElement {
    * @description 通过实例设置按钮圆角
    * @param {'sm' | 'md' | 'lg' | 'full' | 'none'} rounded
    * @example
-   * document.getElementById('va-button').rounded = 'lg';
+   * document.getElementById('va-action').rounded = 'lg';
    */
   set rounded(rounded) {
     this.setAttribute('rounded', rounded);
@@ -133,7 +130,7 @@ class VaButton extends HTMLElement {
    * @description 通过实例设置按钮是否为图标按钮
    * @param {boolean} value
    * @example
-   * document.getElementById('va-button').asIcon = true;
+   * document.getElementById('va-action').asIcon = true;
    */
   set asIcon(value) {
     this.setAttribute('as-icon', value);
@@ -142,55 +139,48 @@ class VaButton extends HTMLElement {
     this.classList.toggle('block', this.hasAttribute('block'));
   }
   #updateDisabled() {
-    this.#button.disabled = this.hasAttribute('disabled');
-    this.#button.setAttribute('aria-disabled', this.hasAttribute('disabled'));
+    this.#action.disabled = this.hasAttribute('disabled');
+    this.#action.setAttribute('aria-disabled', this.hasAttribute('disabled'));
   }
   /**
-   *@description 更新button变体
+   *@description 更新action变体
    * @param {'solid' | 'outline'} variant
    */
   #updateVariant(variant = 'solid') {
-    this.#button.setAttribute('data-variant', variant);
+    this.#action.setAttribute('data-variant', variant);
   }
   /**
-   * @description 更新button颜色
+   * @description 更新action颜色
    * @param {'primary' | 'success' | 'warning' | 'danger'} color
    */
   #updateColor(color) {
-    this.#button.setAttribute('data-color', color);
+    this.#action.setAttribute('data-color', color);
   }
   /**
-   * @description 更新button尺寸
+   * @description 更新action尺寸
    * @param {'sm'| 'md' | 'lg'} size
    */
   #updateSize(size = 'md') {
-    this.#button.setAttribute('data-size', size);
+    this.#action.setAttribute('data-size', size);
   }
   /**
-   * @description 更新button圆角
+   * @description 更新action圆角
    * @param {'sm' | 'md' | 'lg' | 'none' | 'full'} rounded
    */
   #updateRounded(rounded) {
-    this.#button.setAttribute('data-rounded', rounded);
+    this.#action.setAttribute('data-rounded', rounded);
   }
   /**
    * @description 显示加载状态
    */
   #updateLoading() {
-    this.#button.setAttribute('data-loading', this.hasAttribute('loading'));
-    this.hasAttribute('loading') ? this.#button.setAttribute('aria-label', 'loading') : this.#button.removeAttribute('aria-label');
+    this.#action.setAttribute('data-loading', this.hasAttribute('loading'));
+    this.hasAttribute('loading') ? this.#action.setAttribute('aria-label', 'loading') : this.#action.removeAttribute('aria-label');
   }
   /**
-   * @description 更新button类型
-   * @param {'button' | 'submit' | 'reset'} type
-   */
-  #updateType(type = 'button') {
-    this.#button.setAttribute('type', type);
-  }
-  /**
-   * @description 更新button是否为图标按钮
+   * @description 更新action是否为图标按钮
    */
   #updateAsIcon() {
-    this.#button.setAttribute('data-icon', this.hasAttribute('as-icon'));
+    this.#action.setAttribute('data-icon', this.hasAttribute('as-icon'));
   }
 }
