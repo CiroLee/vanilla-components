@@ -45,9 +45,17 @@ class VaIcon extends HTMLElement {
     const numericReg = /^[-+]?(?:\d+(\.\d*)?|\.\d+)([eE][-+]?\d+)?$/;
     return numericReg.test(size) ? `${size}px` : size;
   }
+  async #fetchIcon(prefix, name) {
+    try {
+      const res = await fetch(`https://api.iconify.design/${prefix}/${name}.svg`);
+      if (!res.ok) return '';
+      return await res.text();
+    } catch (error) {
+      console.error(error);
+    }
+  }
   async #render(prefix, name) {
-    const res = await fetch(`https://api.iconify.design/${prefix}/${name}.svg`);
-    const svg = await res.text();
+    const svg = await this.#fetchIcon(prefix, name);
     const size = this.#size || '1em';
     const color = this.#color || 'currentColor';
 
