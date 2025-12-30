@@ -1,6 +1,6 @@
 {
   "name": "@cirolee/vanilla-components",
-  "version": "0.0.1-beta.13",
+  "version": "0.0.1-beta.14",
   "type": "module",
   "description": "vanilla-components is a lightweight UI component library built with native javascript and based on web components. Therefore, you don't need any build tools and can download and use it directly.",
   "main": "dist/vanilla-components.esm.js",

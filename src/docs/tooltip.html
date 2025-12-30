@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>vanilla-components | tooltip</title>
+    <link rel="stylesheet" href="./styles/global.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body>
+    <va-theme-provider>
+      <nav-header></nav-header>
+      <section class="main-container">
+        <side-nav active="va-tooltip"></side-nav>
+        <section class="mt-18">
+          <h2 class="mb-3">Tooltip</h2>
+          <h4 class="mb-2" id="default">Default</h4>
+          <preview-code-switcher>
+            <div slot="preview">
+              <va-tooltip content="This is a tooltip">
+                <va-action>Hover me</va-action>
+              </va-tooltip>
+            </div>
+            <div slot="code">
+              <syntax-highlight id="tooltip-default-code" language="html" />
+            </div>
+          </preview-code-switcher>
+          <h4 class="mb-2 mt-3" id="placement">Placement</h4>
+          <preview-code-switcher>
+            <div slot="preview" class="flex gap-4">
+              <va-tooltip content="This is a tooltip" placement="top">
+                <va-action>top</va-action>
+              </va-tooltip>
+              <va-tooltip content="This is a tooltip" placement="right">
+                <va-action>right</va-action>
+              </va-tooltip>
+              <va-tooltip content="This is a tooltip" placement="bottom">
+                <va-action>bottom</va-action>
+              </va-tooltip>
+              <va-tooltip content="This is a tooltip" placement="left">
+                <va-action>left</va-action>
+              </va-tooltip>
+            </div>
+            <div slot="code">
+              <syntax-highlight id="tooltip-placement-code" language="html" />
+            </div>
+          </preview-code-switcher>
+          <h4 class="mb-2 mt-3" id="delay">Delay</h4>
+          <preview-code-switcher>
+            <div slot="preview">
+              <va-tooltip content="This is a tooltip" delay="1000">
+                <va-action>Hover me</va-action>
+              </va-tooltip>
+            </div>
+            <div slot="code">
+              <syntax-highlight id="tooltip-delay-code" language="html" />
+            </div>
+          </preview-code-switcher>
+          <h4 class="mb-2 mt-3" id="offset">Offset</h4>
+          <preview-code-switcher>
+            <div slot="preview">
+              <va-tooltip content="This is a tooltip" offset="12">
+                <va-action>Hover me</va-action>
+              </va-tooltip>
+            </div>
+            <div slot="code">
+              <syntax-highlight id="tooltip-offset-code" language="html" />
+            </div>
+          </preview-code-switcher>
+          <h4 id="API" class="mt-8 mb-2">API</h4>
+          <div class="custom-table">
+            <table>
+              <thead>
+                <tr>
+                  <th class="min-w-25">html属性</th>
+                  <th class="min-w-25">js属性</th>
+                  <th>类型</th>
+                  <th class="w-50">说明</th>
+                  <th>必填</th>
+                  <th>默认值</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>content</td>
+                  <td>content</td>
+                  <td class="text-(--primary-color)">string</td>
+                  <td>tooltip的文案。建议使用简短的文案。</td>
+                  <td>是</td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <td>placement</td>
+                  <td>placement</td>
+                  <td class="enum-tags"><va-tag size="sm">top</va-tag> | <va-tag size="sm">right</va-tag> | <va-tag size="sm">bottom</va-tag> | <va-tag size="sm">left</va-tag></td>
+                  <td>tooltip的位置</td>
+                  <td>否</td>
+                  <td><va-tag size="sm">top</va-tag></td>
+                </tr>
+                <tr>
+                  <td>delay</td>
+                  <td>delay</td>
+                  <td class="enum-tags"><va-tag size="sm">number</va-tag> | <va-tag size="sm">string</va-tag></td>
+                  <td>tooltip出现/关闭的延迟时间，当为number类型时，会转换为毫秒(ms)</td>
+                  <td>否</td>
+                  <td class="text-(--primary-color)">300ms</td>
+                </tr>
+                <tr>
+                  <td>offset</td>
+                  <td>offset</td>
+                  <td class="text-(--primary-color)">number</td>
+                  <td>tooltip的偏移距离</td>
+                  <td>否</td>
+                  <td class="text-(--primary-color)">6</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+        <on-this-page></on-this-page>
+      </section>
+    </va-theme-provider>
+  </body>
+  <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.11.1/build/highlight.min.js"></script>
+  <script type="module">
+    import { defaultCode, placementCode, delayCode, offsetCode } from './codes/tooltip.js';
+    import '../ui/theme-provider/index.js';
+    import '../ui/tag/index.js';
+    import '../ui/tooltip/index.js';
+    import '../ui/action/index.js';
+    import './components/nav-header.js';
+    import './components/syntax-highlight.js';
+    import './components/preview-code-switcher.js';
+    import './components/side-nav.js';
+    import './components/on-this-page.js';
+
+    const tooltipDefaultCC = document.getElementById('tooltip-default-code');
+    const tooltipPlacementCC = document.getElementById('tooltip-placement-code');
+    const tooltipDelayCC = document.getElementById('tooltip-delay-code');
+    const tooltipOffsetCC = document.getElementById('tooltip-offset-code');
+    tooltipDelayCC.ignore = `style="--tooltip-delay: 1000ms;"`;
+    tooltipDefaultCC.code = defaultCode;
+    tooltipPlacementCC.code = placementCode;
+    tooltipDelayCC.code = delayCode;
+    tooltipOffsetCC.code = offsetCode;
+  </script>
+</html>
