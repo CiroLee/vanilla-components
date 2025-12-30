@@ -15,10 +15,7 @@
     }
   }
   .enum-tags {
-    display: flex;
-    gap: 6px;
-    align-items: center;
-    flex-wrap: wrap;
+    white-space: wrap;
     color: var(--border-color);
   }
 }

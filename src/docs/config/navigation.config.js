@@ -34,4 +34,9 @@ export const navigationConfig = [
     label: 'Progress',
     path: './progress.html',
   },
+  {
+    id: 'va-tooltip',
+    label: 'Tooltip',
+    path: './tooltip.html',
+  },
 ];

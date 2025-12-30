@@ -21,6 +21,7 @@ class VaThemeProvider extends HTMLElement {
           --secondary-text-color: color-mix(in oklch, var(--black-color) 60%, white 40%);
 
           --z-loading: 100;
+          --z-tooltip: 50;
         }
       </style>
       <slot></slot>
