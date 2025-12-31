@@ -62,9 +62,9 @@ class VaTooltip extends HTMLElement {
     this.#triggerEl.addEventListener('focus', this.#showTooltip.bind(this), {
       signal: this.#abortController.signal,
     });
-    // this.#triggerEl.addEventListener('mouseleave', this.#closeTooltip.bind(this), {
-    //   signal: this.#abortController.signal,
-    // });
+    this.#triggerEl.addEventListener('mouseleave', this.#closeTooltip.bind(this), {
+      signal: this.#abortController.signal,
+    });
     this.#triggerEl.addEventListener('blur', this.#closeTooltip.bind(this), {
       signal: this.#abortController.signal,
     });
