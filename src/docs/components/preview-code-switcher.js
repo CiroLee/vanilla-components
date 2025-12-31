@@ -58,8 +58,10 @@ template.innerHTML = /* html */ `
     slot.active {
       display: block;
     }
-    slot[name="preview"] {
-
+    slot[name="preview"].active {
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
   </style>
   <div class="preview-code-switcher">

@@ -27,19 +27,53 @@
           </preview-code-switcher>
           <h4 class="mb-2 mt-3" id="placement">Placement</h4>
           <preview-code-switcher>
-            <div slot="preview" class="flex gap-4">
-              <va-tooltip content="This is a tooltip" placement="top">
-                <va-action>top</va-action>
-              </va-tooltip>
-              <va-tooltip content="This is a tooltip" placement="right">
-                <va-action>right</va-action>
-              </va-tooltip>
-              <va-tooltip content="This is a tooltip" placement="bottom">
-                <va-action>bottom</va-action>
-              </va-tooltip>
-              <va-tooltip content="This is a tooltip" placement="left">
-                <va-action>left</va-action>
-              </va-tooltip>
+            <div slot="preview" class="flex gap-4 w-100 flex-col items-center">
+              <div class="flex gap-3" name="top">
+                <va-tooltip content="This is a tooltip" placement="top-left">
+                  <va-action class="w-20">TL</va-action>
+                </va-tooltip>
+                <va-tooltip content="This is a tooltip" placement="top-center">
+                  <va-action class="w-20">Top</va-action>
+                </va-tooltip>
+                <va-tooltip content="This is a tooltip" placement="top-right">
+                  <va-action class="w-20">TR</va-action>
+                </va-tooltip>
+              </div>
+              <div class="flex justify-between w-full">
+                <div class="flex flex-col gap-3" name="left">
+                  <va-tooltip content="This is a tooltip" placement="left-top">
+                    <va-action class="w-20">LT</va-action>
+                  </va-tooltip>
+                  <va-tooltip content="This is a tooltip" placement="left-center">
+                    <va-action class="w-20">Left</va-action>
+                  </va-tooltip>
+                  <va-tooltip content="This is a tooltip" placement="left-bottom">
+                    <va-action class="w-20">LB</va-action>
+                  </va-tooltip>
+                </div>
+                <div class="flex flex-col gap-3" name="right">
+                  <va-tooltip content="This is a tooltip" placement="right-top">
+                    <va-action class="w-20">RT</va-action>
+                  </va-tooltip>
+                  <va-tooltip content="This is a tooltip" placement="right-center">
+                    <va-action class="w-20">Right</va-action>
+                  </va-tooltip>
+                  <va-tooltip content="This is a tooltip" placement="right-bottom">
+                    <va-action class="w-20">RB</va-action>
+                  </va-tooltip>
+                </div>
+              </div>
+              <div class="flex gap-3" name="bottom">
+                <va-tooltip content="This is a tooltip" placement="bottom-left">
+                  <va-action class="w-20">BL</va-action>
+                </va-tooltip>
+                <va-tooltip content="This is a tooltip" placement="bottom-center">
+                  <va-action class="w-20">Bottom</va-action>
+                </va-tooltip>
+                <va-tooltip content="This is a tooltip" placement="bottom-right">
+                  <va-action class="w-20">BR</va-action>
+                </va-tooltip>
+              </div>
             </div>
             <div slot="code">
               <syntax-highlight id="tooltip-placement-code" language="html" />
@@ -72,8 +106,8 @@
             <table>
               <thead>
                 <tr>
-                  <th class="min-w-25">html属性</th>
-                  <th class="min-w-25">js属性</th>
+                  <th class="min-w-20">html属性</th>
+                  <th class="min-w-20">js属性</th>
                   <th>类型</th>
                   <th class="w-50">说明</th>
                   <th>必填</th>
@@ -92,10 +126,14 @@
                 <tr>
                   <td>placement</td>
                   <td>placement</td>
-                  <td class="enum-tags"><va-tag size="sm">top</va-tag> | <va-tag size="sm">right</va-tag> | <va-tag size="sm">bottom</va-tag> | <va-tag size="sm">left</va-tag></td>
+                  <td class="enum-tags space-y-1">
+                    <va-tag size="sm">top-left</va-tag> | <va-tag size="sm">top-center</va-tag> | <va-tag size="sm">top-right</va-tag> | <va-tag size="sm">right-top</va-tag> |
+                    <va-tag size="sm">right-center</va-tag> | <va-tag size="sm">right-bottom</va-tag> | <va-tag size="sm">bottom-left</va-tag> | <va-tag size="sm">bottom-center</va-tag> |
+                    <va-tag size="sm">bottom-right</va-tag> | <va-tag size="sm">left-top</va-tag> | <va-tag size="sm">left-center</va-tag> | <va-tag size="sm">left-bottom</va-tag>
+                  </td>
                   <td>tooltip的位置</td>
                   <td>否</td>
-                  <td><va-tag size="sm">top</va-tag></td>
+                  <td><va-tag size="sm">top-center</va-tag></td>
                 </tr>
                 <tr>
                   <td>delay</td>

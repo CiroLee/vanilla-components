@@ -28,17 +28,41 @@ template.innerHTML = /* html */ `
           opacity: 1;
           scale: 1;
         }
-        .content[data-placement="top"] {
+        .content[data-placement="top-center"] {
           transform-origin: bottom center;
         }
-        .content[data-placement="right"] {
+        .content[data-placement="top-left"] {
+          transform-origin: bottom left;
+        }
+        .content[data-placement="top-right"] {
+          transform-origin: bottom right;
+        }
+        .content[data-placement="right-top"] {
+          transform-origin: top left;
+        }
+        .content[data-placement="right-center"] {
           transform-origin: left center;
         }
-        .content[data-placement="bottom"] {
+        .content[data-placement="right-bottom"] {
+          transform-origin: bottom left;
+        }
+        .content[data-placement="bottom-left"] {
+          transform-origin: top left;
+        }
+        .content[data-placement="bottom-center"] {
           transform-origin: top center;
         }
-        .content[data-placement="left"] {
+        .content[data-placement="bottom-right"] {
+          transform-origin: top right;
+        }
+        .content[data-placement="left-top"] {
+          transform-origin: top right;
+        }
+        .content[data-placement="left-center"] {
           transform-origin: right center;
+        }
+        .content[data-placement="left-bottom"] {
+          transform-origin: bottom right;
         }
         @starting-style {
           .content[data-state="open"] {
@@ -49,7 +73,7 @@ template.innerHTML = /* html */ `
       </style>
       <div class="tooltip" part="tooltip" role="tooltip">
         <slot></slot>
-        <div class="content" data-state="closed" data-placement="top"></div>
+        <div class="content" data-state="closed" data-placement="top-center"></div>
       </div>
   `;
 export default template;

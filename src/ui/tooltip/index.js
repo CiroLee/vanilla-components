@@ -1,11 +1,12 @@
 import template from './template.js';
 const DEFAULT_OFFSET = 6;
+const PLACEMENTS = ['top-left', 'top-center', 'top-right', 'bottom-left', 'bottom-center', 'bottom-right', 'left-top', 'left-center', 'left-bottom', 'right-top', 'right-center', 'right-bottom'];
 const SCALE = 0.96;
 class VaTooltip extends HTMLElement {
   #contentEl;
   #triggerEl;
   #abortController;
-  placement = 'top';
+  placement = 'top-center';
   #offset = DEFAULT_OFFSET;
 
   static {
@@ -26,7 +27,7 @@ class VaTooltip extends HTMLElement {
   attributeChangedCallback(name, oldValue, newValue) {
     if (name === 'content') {
       this.#contentEl.textContent = newValue;
-    } else if (name === 'placement' && ['top', 'bottom', 'left', 'right'].includes(newValue)) {
+    } else if (name === 'placement' && PLACEMENTS.includes(newValue)) {
       this.#updatePlacement(newValue);
     } else if (name === 'delay') {
       this.style.cssText = `--tooltip-delay: ${this.#formatDelay(newValue)};`;
@@ -79,10 +80,23 @@ class VaTooltip extends HTMLElement {
     const contentRect = this.#contentEl.getBoundingClientRect();
     // 需要除缩放系数，确保位置正确
     switch (this.placement) {
-      case 'top':
+      /* top-left top-center top-right */
+      case 'top-center':
         this.#contentEl.style.cssText = `
             top: ${triggerRect.top - contentRect.height - this.#offset}px;
             left: ${triggerRect.left + triggerRect.width / 2 - contentRect.width / 2 / SCALE}px;
+            `;
+        break;
+      case 'top-left':
+        this.#contentEl.style.cssText = `
+            top: ${triggerRect.top - contentRect.height - this.#offset}px;
+            left: ${triggerRect.left}px;
+            `;
+        break;
+      case 'top-right':
+        this.#contentEl.style.cssText = `
+            top: ${triggerRect.top - contentRect.height - this.#offset}px;
+            left: ${triggerRect.right - contentRect.width / SCALE}px;
             `;
         break;
       case 'bottom':
@@ -97,11 +111,62 @@ class VaTooltip extends HTMLElement {
             left: ${triggerRect.left - contentRect.width / SCALE - this.#offset}px;
             `;
         break;
-      case 'right':
+      /* right-top right-center right-bottom */
+      case 'right-top':
+        this.#contentEl.style.cssText = `
+            top: ${triggerRect.top}px;
+            left: ${triggerRect.right + this.#offset}px;
+            `;
+        break;
+      case 'right-center':
         this.#contentEl.style.cssText = `
             top: ${triggerRect.top + triggerRect.height / 2 - contentRect.height / 2}px;
             left: ${triggerRect.right + this.#offset}px;
             `;
+        break;
+      case 'right-bottom':
+        this.#contentEl.style.cssText = `
+            top: ${triggerRect.bottom - contentRect.height / SCALE}px;
+            left: ${triggerRect.right + this.#offset}px;
+            `;
+        break;
+      case 'bottom-left':
+        this.#contentEl.style.cssText = `
+            top: ${triggerRect.bottom + this.#offset}px;
+            left: ${triggerRect.left}px;
+            `;
+        break;
+      case 'bottom-center':
+        this.#contentEl.style.cssText = `
+            top: ${triggerRect.bottom + this.#offset}px;
+            left: ${triggerRect.left + triggerRect.width / 2 - contentRect.width / 2 / SCALE}px;
+            `;
+        break;
+      case 'bottom-right':
+        this.#contentEl.style.cssText = `
+            top: ${triggerRect.bottom + this.#offset}px;
+            left: ${triggerRect.right - contentRect.width / SCALE}px;
+            `;
+        break;
+      case 'left-top':
+        this.#contentEl.style.cssText = `
+            top: ${triggerRect.top}px;
+            left: ${triggerRect.left - contentRect.width / SCALE - this.#offset}px;
+            `;
+        break;
+      case 'left-center':
+        this.#contentEl.style.cssText = `
+            top: ${triggerRect.top + triggerRect.height / 2 - contentRect.height / 2}px;
+            left: ${triggerRect.left - contentRect.width / SCALE - this.#offset}px;
+            `;
+        break;
+      case 'left-bottom':
+        this.#contentEl.style.cssText = `
+            top: ${triggerRect.bottom - contentRect.height / SCALE}px;
+            left: ${triggerRect.left - contentRect.width / SCALE - this.#offset}px;
+            `;
+        break;
+      default:
         break;
     }
   }
