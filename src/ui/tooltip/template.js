@@ -11,7 +11,6 @@ template.innerHTML = /* html */ `
           transition-timing-function: ease-in-out;
           transition-duration: 150ms;
           transition-delay: var(--tooltip-delay, 300ms);
-          transform-origin: center;
           font-size: 12px;
           padding: 4px 6px;
           color: white;
@@ -29,6 +28,18 @@ template.innerHTML = /* html */ `
           opacity: 1;
           scale: 1;
         }
+        .content[data-placement="top"] {
+          transform-origin: bottom center;
+        }
+        .content[data-placement="right"] {
+          transform-origin: left center;
+        }
+        .content[data-placement="bottom"] {
+          transform-origin: top center;
+        }
+        .content[data-placement="left"] {
+          transform-origin: right center;
+        }
         @starting-style {
           .content[data-state="open"] {
             opacity: 0;
@@ -38,7 +49,7 @@ template.innerHTML = /* html */ `
       </style>
       <div class="tooltip" part="tooltip" role="tooltip">
         <slot></slot>
-        <div class="content" data-state="closed"></div>
+        <div class="content" data-state="closed" data-placement="top"></div>
       </div>
   `;
 export default template;

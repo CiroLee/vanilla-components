@@ -62,9 +62,9 @@ class VaTooltip extends HTMLElement {
     this.#triggerEl.addEventListener('focus', this.#showTooltip.bind(this), {
       signal: this.#abortController.signal,
     });
-    this.#triggerEl.addEventListener('mouseleave', this.#closeTooltip.bind(this), {
-      signal: this.#abortController.signal,
-    });
+    // this.#triggerEl.addEventListener('mouseleave', this.#closeTooltip.bind(this), {
+    //   signal: this.#abortController.signal,
+    // });
     this.#triggerEl.addEventListener('blur', this.#closeTooltip.bind(this), {
       signal: this.#abortController.signal,
     });
@@ -113,7 +113,8 @@ class VaTooltip extends HTMLElement {
       this.#closeTooltip();
     }
   }
-  #updatePlacement(placement) {
+  #updatePlacement(placement = 'top') {
     this.placement = placement;
+    this.#contentEl.setAttribute('data-placement', placement);
   }
 }
