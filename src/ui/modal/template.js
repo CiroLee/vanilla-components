@@ -9,7 +9,6 @@ template.innerHTML = /* html */ `
       outline: 0;
       box-shadow: 0 6px 14px -4px rgb(0 0 0 / 30%);
       border-radius: 6px;
-      position: fixed;
       opacity: 0;
       translate: 0 20px;
       transition-property: translate, opacity, overlay, display;
@@ -34,12 +33,11 @@ template.innerHTML = /* html */ `
     }
     dialog[open]::backdrop {
       opacity: 1;
-
     }
     @starting-style {
       dialog[open] {
         opacity: 0;
-      translate: 0 20px;
+        translate: 0 20px;
       }
     }
     @starting-style {

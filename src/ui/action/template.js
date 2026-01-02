@@ -93,7 +93,7 @@ template.innerHTML = /* html */ `
         }
       }
       &[data-variant="outline"] {
-        border: 1px solid color-mix(in oklch, var(--color) 60%, white 40%);
+        border: 1px solid var(--color);
       }
     }
   </style>
