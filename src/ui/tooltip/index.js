@@ -8,6 +8,8 @@ class VaTooltip extends HTMLElement {
   #abortController;
   placement = 'top-center';
   #offset = DEFAULT_OFFSET;
+  #visible = false;
+  #observer;
 
   static {
     customElements.define('va-tooltip', this);
@@ -70,12 +72,23 @@ class VaTooltip extends HTMLElement {
       signal: this.#abortController.signal,
     });
     this.#triggerEl.addEventListener('keydown', this.#keyDown.bind(this), { signal: this.#abortController.signal });
+    // 滚动时隐藏 tooltip
+    window.addEventListener('scroll', this.#hideByScroll.bind(this), {
+      signal: this.#abortController.signal,
+      capture: true,
+    });
   }
   disconnectedCallback() {
     this.#abortController.abort();
   }
+  #hideByScroll() {
+    if (this.#visible) {
+      this.#closeTooltip();
+    }
+  }
   #showTooltip() {
     this.#contentEl.setAttribute('data-state', 'open');
+    this.#visible = true;
     const triggerRect = this.#triggerEl.getBoundingClientRect();
     const contentRect = this.#contentEl.getBoundingClientRect();
     // 需要除缩放系数，确保位置正确

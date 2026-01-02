@@ -10,7 +10,6 @@ template.innerHTML = /* html */ `
           transition-behavior: allow-discrete;
           transition-timing-function: ease-in-out;
           transition-duration: 150ms;
-          transition-delay: var(--tooltip-delay, 300ms);
           font-size: 12px;
           padding: 4px 6px;
           color: white;
@@ -24,6 +23,7 @@ template.innerHTML = /* html */ `
           z-index: var(--z-tooltip);
         }
         .content[data-state="open"] {
+          transition-delay: var(--tooltip-delay, 300ms);
           display: block;
           opacity: 1;
           scale: 1;

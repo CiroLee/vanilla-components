@@ -39,4 +39,9 @@ export const navigationConfig = [
     label: 'Tooltip',
     path: './tooltip.html',
   },
+  {
+    id: 'va-drawer',
+    label: 'Drawer',
+    path: './drawer.html',
+  },
 ];

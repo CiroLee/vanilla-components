@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="styles/global.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>vanilla-components | drawer</title>
+  </head>
+  <body>
+    <va-theme-provider>
+      <nav-header></nav-header>
+      <section class="main-container">
+        <side-nav active="va-drawer"></side-nav>
+        <section class="mt-18">
+          <h2 class="mb-3">Drawer</h2>
+          <h4 id="default" class="mb-2 mt-3">Default</h4>
+          <preview-code-switcher>
+            <div slot="preview">
+              <va-action id="open-drawer-default">open drawer</va-action>
+            </div>
+            <div slot="code">
+              <syntax-highlight id="drawer-default-code-html" language="html">
+            </div>
+            <div slot="code">
+              <syntax-highlight id="drawer-default-code-js" language="js"></syntax-highlight>
+            </div>
+          </preview-code-switcher>
+           <h4 id="placement" class="mb-2 mt-3">Placement</h4>
+          <preview-code-switcher>
+            <div slot="preview" class="flex gap-3">
+              <va-action class="w-20" id="open-drawer-top">top</va-action>
+              <va-action class="w-20" id="open-drawer-bottom">bottom</va-action>
+              <va-action class="w-20" id="open-drawer-left">left</va-action>
+              <va-action class="w-20" id="open-drawer-right">right</va-action>
+            </div>
+            <div slot="code">
+              <syntax-highlight id="placement-drawer-code" language="js">
+            </div>
+          </preview-code-switcher>
+          <h4 id="overlay" class="mb-2 mt-3">Blur overlay</h4>
+          <preview-code-switcher>
+            <div slot="preview">
+              <va-action id="open-drawer-blur">open drawer</va-action>
+            </div>
+            <div slot="code">
+              <syntax-highlight id="overlay-drawer-code" language="html">
+            </div>
+          </preview-code-switcher>
+          <h4 id="API" class="mt-8 mb-2">API</h4>
+          <div class="custom-table">
+            <table>
+              <thead>
+                <tr>
+                  <th class="min-w-25">html属性</th>
+                  <th class="min-w-25">js属性</th>
+                  <th>类型</th>
+                  <th>说明</th>
+                  <th>必填</th>
+                  <th>默认值</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>show</td>
+                  <td>show</td>
+                  <td class="text-(--primary-color)">boolean</td>
+                  <td>是否显示drawer</td>
+                  <td>否</td>
+                  <td class="text-(--primary-color)">false</td>
+                </tr>
+                <tr>
+                  <td>overlay</td>
+                  <td>overlay</td>
+                  <td class="enum-tags"><va-tag size="sm">default</va-tag> | <va-tag size="sm">blur</va-tag></td>
+                  <td>设置遮罩样式</td>
+                  <td>否</td>
+                  <td><va-tag size="sm">default</va-tag></td>
+                </tr>
+                <tr>
+                  <td>placement</td>
+                  <td>placement</td>
+                  <td class="enum-tags"><va-tag size="sm">top</va-tag> | <va-tag size="sm">bottom</va-tag> | <va-tag size="sm">left</va-tag> | <va-tag size="sm">right</va-tag></td>
+                  <td>设置drawer位置</td>
+                  <td>否</td>
+                  <td><va-tag size="sm">right</va-tag></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <h4 id="Event" class="mt-8 mb-2">Event</h4>
+          <div class="custom-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>名称</th>
+                  <th>类型</th>
+                  <th>说明</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>open</td>
+                  <td class="text-(--primary-color)"><code>() => void</code></td>
+                  <td>打开drawer</td>
+                </tr>
+                <tr>
+                  <td>close</td>
+                  <td class="text-(--primary-color)"><code>() => void</code></td>
+                  <td>关闭drawer</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+        <on-this-page></on-this-page>
+      </section>
+      <va-drawer id="drawer">
+        <h4>Title</h4>
+        <div class="py-2">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </div>
+        <div class="absolute bottom-0 left-0 flex gap-3 items-center justify-end px-4 w-full h-16 border-t border-neutral-100">
+          <va-action color="secondary">Cancel</va-action>
+          <va-action color="primary">Confirm</va-action>
+        </div>
+      </va-drawer>
+      <va-drawer id="overlay-drawer" overlay="blur">
+        <h4>Title</h4>
+        <div class="py-2">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </div>
+        <div class="absolute bottom-0 left-0 flex gap-3 items-center justify-end px-4 w-full h-16 border-t border-neutral-100">
+          <va-action color="secondary">Cancel</va-action>
+          <va-action color="primary">Confirm</va-action>
+        </div>
+      </va-drawer>
+    </va-theme-provider>
+  </body>
+  <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.11.1/build/highlight.min.js"></script>
+  <script type="module">
+    import { defaultDrawerCodeHtml, defaultDrawerCodeJs, placementDrawerCodeJs, blurOverlayCode } from './codes/drawer.js'
+    import './components/nav-header.js';
+    import '../ui/action/index.js';
+    import '../ui//theme-provider/index.js';
+    import '../ui/icon/index.js';
+    import '../ui/tag/index.js';
+    import '../ui/drawer/index.js';
+    import './components/syntax-highlight.js';
+    import './components/preview-code-switcher.js';
+    import './components/syntax-highlight.js';
+    import './components/side-nav.js';
+    import './components/on-this-page.js';
+
+    // actions
+    const actionOpenDrawerDefault = document.getElementById('open-drawer-default');
+    const drawerCom = document.getElementById('drawer');
+    const overlayDrawerCom = document.getElementById('overlay-drawer');
+    actionOpenDrawerDefault.addEventListener('click', () => {
+      drawerCom.placement = 'right';
+      drawerCom.open();
+    });
+    // placement
+    const actionOpenDrawerTop = document.getElementById('open-drawer-top');
+    const actionOpenDrawerBottom = document.getElementById('open-drawer-bottom');
+    const actionOpenDrawerLeft = document.getElementById('open-drawer-left');
+    const actionOpenDrawerRight = document.getElementById('open-drawer-right');
+    actionOpenDrawerTop.addEventListener('click', () => {
+      drawerCom.placement = 'top';
+      drawerCom.open();
+    });
+    actionOpenDrawerBottom.addEventListener('click', () => {
+      drawerCom.placement = 'bottom';
+      drawerCom.open();
+    });
+    actionOpenDrawerLeft.addEventListener('click', () => {
+      drawerCom.placement = 'left';
+      drawerCom.open();
+    });
+    actionOpenDrawerRight.addEventListener('click', () => {
+      drawerCom.placement = 'right';
+      drawerCom.open();
+    });
+    const actionOpenDrawerBlur = document.getElementById('open-drawer-blur');
+    actionOpenDrawerBlur.addEventListener('click', () => {
+      overlayDrawerCom.open();
+    });
+
+    const drawerDefaultCodeHtml = document.getElementById('drawer-default-code-html');
+    const drawerDefaultCodeJs = document.getElementById('drawer-default-code-js');
+    const drawerPlacementCodeJs = document.getElementById('placement-drawer-code');
+    const drawerOverlayCode = document.getElementById('overlay-drawer-code');
+    drawerDefaultCodeHtml.code = defaultDrawerCodeHtml;
+    drawerDefaultCodeJs.code = defaultDrawerCodeJs;
+    drawerPlacementCodeJs.code = placementDrawerCodeJs;
+    drawerOverlayCode.code = blurOverlayCode;
+  </script>
+</html>
