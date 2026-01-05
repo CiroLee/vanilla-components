@@ -16,8 +16,16 @@ vanilla-components 是一个使用原生 javascript 构建的基于 Web 组件�
 
 使用 CND 引入最新版本:
 
+ESModule:
+
 ```html
 <script type="module" src="https://cdn.jsdelivr.net/npm/@cirolee/vanilla-components@latest/dist/vanilla-components.esm.js"></script>
+```
+
+UMD:
+
+```html
+<script type="module" src="https://cdn.jsdelivr.net/npm/@cirolee/vanilla-components@latest/dist/vanilla-components.umd.js"></script>
 ```
 
 你应该将`va-theme-provider` 组件作为根组件，它仅提供主题颜色，其他组件应该放在里面。

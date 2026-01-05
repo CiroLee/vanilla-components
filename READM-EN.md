@@ -16,8 +16,16 @@ your browser should support ES2022 and some new css properties(e.g `color-mix`, 
 
 import it using a cdn url to use the latest version:
 
+ESModule:
+
 ```html
 <script type="module" src="https://cdn.jsdelivr.net/npm/@cirolee/vanilla-components@latest/dist/vanilla-components.esm.js"></script>
+```
+
+UMD:
+
+```html
+<script type="module" src="https://cdn.jsdelivr.net/npm/@cirolee/vanilla-components@latest/dist/vanilla-components.umd.js"></script>
 ```
 
 the you must use `va-theme-provider` as the root element, it just provide theme color, and all other components should be placed inside it.
