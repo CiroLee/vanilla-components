@@ -53,7 +53,7 @@ class VaAction extends HTMLElement {
     this.#handleClick = (e) => {
       if (!this.disabled && !this.hasAttribute('loading')) {
         this.dispatchEvent(
-          new CustomEvent('onClick', {
+          new CustomEvent('va-action-click', {
             bubbles: true,
             composed: true,
             detail: {

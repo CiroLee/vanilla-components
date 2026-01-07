@@ -2,6 +2,9 @@ const template = document.createElement('template');
 
 template.innerHTML = /* html */ `
   <style>
+    :host {
+      --width: 24%;
+    }
     .drawer {
       padding: 16px;
       border: 0;
@@ -14,8 +17,14 @@ template.innerHTML = /* html */ `
       transition-behavior: allow-discrete;
       transition-timing-function: ease-in-out;
       --backdrop-shadow: rgb(0 0 0 / 6%);
+
       &[data-overlay="blur"]::backdrop {
         backdrop-filter: blur(4px);
+      }
+    }
+    @media (width < 640px) {
+      :host {
+        --width: 80%;
       }
     }
     .drawer[open] {
@@ -39,7 +48,7 @@ template.innerHTML = /* html */ `
       transition: opacity 150ms ease-in-out allow-discrete;
     }
     .drawer[data-placement="left"], .drawer[data-placement="right"] {
-      width: 30%;
+      width: var(--width);
       height: 100%;
     }
     .drawer[data-placement="top"], .drawer[data-placement="bottom"] {
