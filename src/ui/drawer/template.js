@@ -3,7 +3,7 @@ const template = document.createElement('template');
 template.innerHTML = /* html */ `
   <style>
     :host {
-      --width: 22%;
+      --width: 24%;
     }
     .drawer {
       padding: 16px;
