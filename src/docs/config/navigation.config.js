@@ -15,6 +15,16 @@ export const navigationConfig = [
     path: './action.html',
   },
   {
+    id: 'va-battery',
+    label: 'Battery',
+    path: './battery.html',
+  },
+  {
+    id: 'va-loading',
+    label: 'Loading',
+    path: './loading.html',
+  },
+  {
     id: 'va-modal',
     label: 'Modal',
     path: './modal.html',

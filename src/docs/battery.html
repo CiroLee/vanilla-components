@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>vanilla-components | battery</title>
+    <link rel="stylesheet" href="./styles/global.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body>
+    <va-theme-provider>
+      <nav-header></nav-header>
+      <section class="main-container">
+        <side-nav active="va-battery"></side-nav>
+        <section class="mt-18">
+          <h2 class="mb-3">Battery</h2>
+          <h4 id="Default" class="mb-2">Default</h4>
+          <preview-code-switcher>
+            <div slot="preview">
+              <va-battery value="50"></va-battery>
+            </div>
+            <div slot="code">
+              <syntax-highlight id="battery-default" language="html"></syntax-highlight>
+            </div>
+          </preview-code-switcher>
+          <h4 id="Charging" class="mt-3 mb-2">Charing</h4>
+          <preview-code-switcher>
+            <div slot="preview" class="flex items-center gap-3">
+              <va-battery value="80" charging></va-battery>
+              <va-battery value="100" charging></va-battery>
+            </div>
+            <div slot="code">
+              <div slot="code">
+                <syntax-highlight id="battery-charging" language="html"></syntax-highlight>
+              </div>
+            </div>
+          </preview-code-switcher>
+          <h4 id="LowBattery" class="mt-3 mb-2">LowBattery</h4>
+          <preview-code-switcher>
+            <div slot="preview" class="flex items-center gap-3">
+              <va-battery value="20" charging></va-battery>
+              <va-battery value="40" low-battery-value="50"></va-battery>
+            </div>
+            <div slot="code">
+              <syntax-highlight id="battery-low-battery" language="html"></syntax-highlight>
+            </div>
+          </preview-code-switcher>
+          <h4 id="API" class="mt-8 mb-2">API</h4>
+          <div class="custom-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>html属性</th>
+                  <th>js属性</th>
+                  <th>类型</th>
+                  <th>说明</th>
+                  <th>必填</th>
+                  <th>默认值</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>value</td>
+                  <td>value</td>
+                  <td class="text-(--primary-color)">number</td>
+                  <td>当前电量值，0到100之间</td>
+                  <td>是</td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <td>charging</td>
+                  <td>charging</td>
+                  <td class="text-(--primary-color)">boolean</td>
+                  <td>是否在充电</td>
+                  <td>否</td>
+                  <td class="text-(--primary-color)">false</td>
+                </tr>
+                <tr>
+                  <td>low-battery-value</td>
+                  <td>lowBatteryValue</td>
+                  <td class="text-(--primary-color)">number</td>
+                  <td>低电量阈值</td>
+                  <td>否</td>
+                  <td class="text-(--primary-color)">20</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+        <on-this-page></on-this-page>
+      </section>
+    </va-theme-provider>
+  </body>
+  <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.11.1/build/highlight.min.js"></script>
+  <script type="module">
+    import './components/nav-header.js';
+    import './components/syntax-highlight.js';
+    import './components/preview-code-switcher.js';
+    import '../ui/theme-provider/index.js';
+    import '../ui/action/index.js';
+    import '../ui/tag/index.js';
+    import '../ui/loading/index.js';
+    import '../ui/battery/index.js';
+    import './components/side-nav.js';
+    import './components/on-this-page.js';
+    import { defaultCode, chargingCode, lowBatteryCode } from './codes/battery.js';
+
+    const batteryDefaultCode = document.getElementById('battery-default');
+    const batteryChargingCode = document.getElementById('battery-charging');
+    const batteryLowBatteryCode = document.getElementById('battery-low-battery');
+    batteryDefaultCode.code = defaultCode;
+    batteryChargingCode.code = chargingCode;
+    batteryLowBatteryCode.code = lowBatteryCode;
+  </script>
+</html>
